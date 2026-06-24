@@ -133,9 +133,9 @@ function Hero() {
             </a>
           </div>
           <div className="mt-10 flex items-center gap-6 text-xs text-muted-foreground">
-            <div><div className="text-2xl font-display font-bold text-foreground">5+</div>Anos em TI</div>
+            <div><div className="text-2xl font-display font-bold text-foreground">8+</div>Anos em TI</div>
             <div className="h-8 w-px bg-border" />
-            <div><div className="text-2xl font-display font-bold text-foreground">20+</div>Projetos entregues</div>
+            <div><div className="text-2xl font-display font-bold text-foreground">10+</div>Projetos</div>
             <div className="h-8 w-px bg-border" />
             <div><div className="text-2xl font-display font-bold text-foreground">∞</div>Aprendizado</div>
           </div>
