@@ -577,9 +577,9 @@ function Footer() {
           <span>© {new Date().getFullYear()} Gabrielly Ferreira. Todos os direitos reservados.</span>
         </div>
         <div className="flex items-center gap-4">
-          <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="hover:text-rose transition"><Linkedin className="h-4 w-4" /></a>
-          <a href="https://github.com" target="_blank" rel="noreferrer" className="hover:text-rose transition"><Github className="h-4 w-4" /></a>
-          <a href="mailto:contato@gabrielly.dev" className="hover:text-rose transition"><Mail className="h-4 w-4" /></a>
+          <a href="https://linkedin.com/in/gabrielly-ti" target="_blank" rel="noreferrer" className="hover:text-rose transition"><Linkedin className="h-4 w-4" /></a>
+          <a href="https://github.com/xgabiez" target="_blank" rel="noreferrer" className="hover:text-rose transition"><Github className="h-4 w-4" /></a>
+          <a href="mailto:gabriellydeabreuferreira@gmail.com" className="hover:text-rose transition"><Mail className="h-4 w-4" /></a>
         </div>
       </div>
     </footer>
