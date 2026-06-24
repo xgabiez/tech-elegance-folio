@@ -125,7 +125,7 @@ function Hero() {
             <a href="#contato" className="inline-flex items-center gap-2 rounded-full gradient-rose-gold px-6 py-3 font-semibold text-primary-foreground glow-rose hover:scale-[1.02] transition">
               <Mail className="h-4 w-4" /> Entrar em contato
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full glass-strong px-6 py-3 font-semibold hover:bg-white/5 transition">
+            <a href="https://linkedin.com/in/gabrielly-ti" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full glass-strong px-6 py-3 font-semibold hover:bg-white/5 transition">
               <Linkedin className="h-4 w-4" /> LinkedIn
             </a>
             <a href="#" className="inline-flex items-center gap-2 rounded-full border border-rose/40 px-6 py-3 font-semibold text-rose hover:bg-rose/5 transition">
@@ -133,9 +133,9 @@ function Hero() {
             </a>
           </div>
           <div className="mt-10 flex items-center gap-6 text-xs text-muted-foreground">
-            <div><div className="text-2xl font-display font-bold text-foreground">5+</div>Anos em TI</div>
+            <div><div className="text-2xl font-display font-bold text-foreground">8+</div>Anos em TI</div>
             <div className="h-8 w-px bg-border" />
-            <div><div className="text-2xl font-display font-bold text-foreground">20+</div>Projetos entregues</div>
+            <div><div className="text-2xl font-display font-bold text-foreground">10+</div>Projetos</div>
             <div className="h-8 w-px bg-border" />
             <div><div className="text-2xl font-display font-bold text-foreground">∞</div>Aprendizado</div>
           </div>
@@ -490,8 +490,8 @@ function Impact() {
       <div className="mx-auto max-w-6xl px-4">
         <SectionTitle kicker="Resultados e Impacto" title="Tecnologia que gera valor" sub="Métricas que refletem entregas reais em ambientes educacionais." />
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          <StatCard value={10} suffix="+" label="Plataformas educacionais geridas" icon={Server} />
-          <StatCard value={20} suffix="+" label="Projetos de inovação tecnológica" icon={Sparkles} />
+          <StatCard value={8} suffix="+" label="Anos de experiência em TI" icon={Server} />
+          <StatCard value={10} suffix="+" label="Plataformas educacionais e corporativas administrativas" icon={Sparkles} />
           <StatCard value={500} suffix="+" label="Usuários atendidos e treinados" icon={Wifi} />
           <StatCard value={99} suffix="%" label="Disponibilidade de infraestrutura" icon={Trophy} />
         </div>
@@ -515,10 +515,10 @@ function Contact() {
         <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-8">
           <div className="space-y-3">
             {[
-              { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/gabrielly", href: "https://linkedin.com" },
-              { icon: Github, label: "GitHub", value: "github.com/gabrielly", href: "https://github.com" },
-              { icon: Mail, label: "E-mail", value: "contato@gabrielly.dev", href: "mailto:contato@gabrielly.dev" },
-              { icon: Phone, label: "WhatsApp", value: "+55 (48) 9 9999-9999", href: "https://wa.me/5548999999999" },
+              { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/gabrielly-ti", href: "https://linkedin.com/in/gabrielly-ti" },
+              { icon: Github, label: "GitHub", value: "github.com/xgabiez", href: "https://github.com/xgabiez" },
+              { icon: Mail, label: "E-mail", value: "gabriellydeabreuferreira@gmail.com", href: "mailto:gabriellydeabreuferreira@gmail.com" },
+              { icon: Phone, label: "WhatsApp", value: "+55 (51) 99756-3735", href: "https://wa.me/5551997563735" },
               { icon: MapPin, label: "Localização", value: "Florianópolis, SC — Brasil" },
             ].map((c) => {
               const Tag = c.href ? "a" : "div";
@@ -577,9 +577,9 @@ function Footer() {
           <span>© {new Date().getFullYear()} Gabrielly Ferreira. Todos os direitos reservados.</span>
         </div>
         <div className="flex items-center gap-4">
-          <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="hover:text-rose transition"><Linkedin className="h-4 w-4" /></a>
-          <a href="https://github.com" target="_blank" rel="noreferrer" className="hover:text-rose transition"><Github className="h-4 w-4" /></a>
-          <a href="mailto:contato@gabrielly.dev" className="hover:text-rose transition"><Mail className="h-4 w-4" /></a>
+          <a href="https://linkedin.com/in/gabrielly-ti" target="_blank" rel="noreferrer" className="hover:text-rose transition"><Linkedin className="h-4 w-4" /></a>
+          <a href="https://github.com/xgabiez" target="_blank" rel="noreferrer" className="hover:text-rose transition"><Github className="h-4 w-4" /></a>
+          <a href="mailto:gabriellydeabreuferreira@gmail.com" className="hover:text-rose transition"><Mail className="h-4 w-4" /></a>
         </div>
       </div>
     </footer>
