@@ -208,7 +208,7 @@ function About() {
             {[
               { icon: Network, t: "Infraestrutura", d: "Redes, servidores e dispositivos" },
               { icon: GraduationCap, t: "Educação Digital", d: "Plataformas e Google Workspace" },
-              { icon: Code2, t: "Desenvolvimento", d: "Python, SQL e front-end" },
+              { icon: Code2, t: "Desenvolvimento", d: "HTML, CSS, Javascript, Python, SQL" },
               { icon: BarChart3, t: "Dados & BI", d: "Power BI e análise de indicadores" },
             ].map((c) => (
               <div key={c.t} className="glass rounded-2xl p-5 hover:bg-white/[0.04] hover:-translate-y-1 transition">
