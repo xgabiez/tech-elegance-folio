@@ -6,7 +6,8 @@ import {
   Briefcase, Trophy, BookOpen, Award, Send, MapPin, Wifi,
   Server, Palette, FileSpreadsheet, Brain, TrendingUp, Lock, ExternalLink,
 } from "lucide-react";
-import portrait from "@/assets/gabrielly.jpg";
+import portraitAsset from "@/assets/gabrielly.jpg.asset.json";
+const portrait = portraitAsset.url;
 
 export const Route = createFileRoute("/")({
   head: () => ({
