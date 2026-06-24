@@ -515,10 +515,10 @@ function Contact() {
         <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-8">
           <div className="space-y-3">
             {[
-              { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/gabrielly", href: "https://linkedin.com" },
-              { icon: Github, label: "GitHub", value: "github.com/gabrielly", href: "https://github.com" },
-              { icon: Mail, label: "E-mail", value: "contato@gabrielly.dev", href: "mailto:contato@gabrielly.dev" },
-              { icon: Phone, label: "WhatsApp", value: "+55 (48) 9 9999-9999", href: "https://wa.me/5548999999999" },
+              { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/gabrielly-ti", href: "https://linkedin.com/in/gabrielly-ti" },
+              { icon: Github, label: "GitHub", value: "github.com/xgabiez", href: "https://github.com/xgabiez" },
+              { icon: Mail, label: "E-mail", value: "gabriellydeabreuferreira@gmail.com", href: "mailto:gabriellydeabreuferreira@gmail.com" },
+              { icon: Phone, label: "WhatsApp", value: "+55 (51) 99756-3735", href: "https://wa.me/5551997563735" },
               { icon: MapPin, label: "Localização", value: "Florianópolis, SC — Brasil" },
             ].map((c) => {
               const Tag = c.href ? "a" : "div";
