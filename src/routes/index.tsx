@@ -125,7 +125,7 @@ function Hero() {
             <a href="#contato" className="inline-flex items-center gap-2 rounded-full gradient-rose-gold px-6 py-3 font-semibold text-primary-foreground glow-rose hover:scale-[1.02] transition">
               <Mail className="h-4 w-4" /> Entrar em contato
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full glass-strong px-6 py-3 font-semibold hover:bg-white/5 transition">
+            <a href="https://linkedin.com/in/gabrielly-ti" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full glass-strong px-6 py-3 font-semibold hover:bg-white/5 transition">
               <Linkedin className="h-4 w-4" /> LinkedIn
             </a>
             <a href="#" className="inline-flex items-center gap-2 rounded-full border border-rose/40 px-6 py-3 font-semibold text-rose hover:bg-rose/5 transition">
