@@ -229,7 +229,7 @@ const experiences = [
   {
     role: "Analista de TI",
     company: "Centro Educacional Menino Jesus, Florianópolis, SC",
-    period: "fev 2026 - atual",
+    period: "JUN 2026 - ATUAL",
     items: [
       "Gestão e sustentação dos ambientes tecnológicos da instituição",
       "Administração da infraestrutura de TI, redes e sistemas corporativos",
