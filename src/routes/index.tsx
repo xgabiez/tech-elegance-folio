@@ -227,6 +227,22 @@ function About() {
 /* ---------- Experience ---------- */
 const experiences = [
   {
+    role: "Analista de TI",
+    company: "Centro Educacional Menino Jesus, Florianópolis, SC",
+    period: "fev 2026 - atual",
+    items: [
+      "Gestão e sustentação dos ambientes tecnológicos da instituição",
+      "Administração da infraestrutura de TI, redes e sistemas corporativos",
+      "Suporte técnico N1/N2 às áreas acadêmica e administrativa",
+      "Administração do Google Workspace, gestão de acessos e controle de inventário",
+      "Análise de logs, apoio à administração de firewall e boas práticas de segurança da informação",
+      "Consultas e extração de informações em banco de dados Oracle para relatórios e demandas administrativas",
+      "Suporte a ambientes virtualizados, sistemas acadêmicos e plataformas institucionais",
+      "Contato direto com fornecedores e suporte terceirizado, abertura e acompanhamento de chamados",
+      "Participação em projetos de melhoria contínua e evolução da infraestrutura tecnológica",
+    ],
+  },
+  {
     role: "Gestora de TI",
     company: "Escola São Benedito - Rede ICM, Bagé, RS",
     period: "nov 2023 - fev 2026",
