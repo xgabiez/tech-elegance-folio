@@ -543,8 +543,8 @@ function Impact() {
         <SectionTitle kicker="Resultados e Impacto" title="Tecnologia que gera valor" sub="Métricas que refletem entregas reais em ambientes educacionais." />
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           <StatCard value={8} suffix="+" label="Anos de experiência em TI" icon={Server} />
-          <StatCard value={10} suffix="+" label="Plataformas educacionais e corporativas administrativas" icon={Sparkles} />
-          <StatCard value={500} suffix="+" label="Usuários atendidos e treinados" icon={Wifi} />
+          <StatCard value={3} suffix="" label="Setores de atuação (Público, Telecom e Educação)" icon={Sparkles} />
+          <StatCard value={10} suffix="+" label="Plataformas educacionais e corporativas administrativas" icon={Wifi} />
           <StatCard value={99} suffix="%" label="Disponibilidade de infraestrutura" icon={Trophy} />
         </div>
       </div>
