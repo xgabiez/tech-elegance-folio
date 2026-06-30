@@ -272,10 +272,11 @@ const experiences = [
     company: "VRM Telecom, Bagé, RS | Estágio",
     period: "Jul 2021 - Jun 2022",
     items: [
-      "Apoio à administração básica de servidores",
-      "Controle de acessos de usuários",
-      "Configuração de roteadores",
-      "Atendimento técnico presencial e remoto",
+      "Emissão de notas fiscais eletrônicas (NF-e) por meio da SEFAZ",
+      "Recebimento de pagamentos e baixa de títulos no sistema",
+      "Atendimento administrativo e suporte aos processos financeiros",
+      "Apoio à administração básica de servidores e controle de acessos",
+      "Configuração de roteadores e atendimento técnico presencial/remoto",
     ],
   },
   {
