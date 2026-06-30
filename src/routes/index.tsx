@@ -129,7 +129,7 @@ function Hero() {
             <a href="#contato" className="inline-flex items-center gap-2 rounded-full gradient-rose-gold px-6 py-3 font-semibold text-primary-foreground glow-rose hover:scale-[1.02] transition">
               <Mail className="h-4 w-4" /> Entrar em contato
             </a>
-            <a href="https://linkedin.com/in/gabrielly-ti" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full glass-strong px-6 py-3 font-semibold hover:bg-white/5 transition">
+            <a href="https://linkedin.com/in/gabrielly-ferreira-ti" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full glass-strong px-6 py-3 font-semibold hover:bg-white/5 transition">
               <Linkedin className="h-4 w-4" /> LinkedIn
             </a>
             <a href="#" className="inline-flex items-center gap-2 rounded-full border border-rose/40 px-6 py-3 font-semibold text-rose hover:bg-rose/5 transition">
@@ -783,7 +783,7 @@ function Contact() {
         <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-8">
           <div className="space-y-3">
             {[
-              { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/gabrielly-ti", href: "https://linkedin.com/in/gabrielly-ti" },
+              { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/gabrielly-ferreira-ti", href: "https://linkedin.com/in/gabrielly-ferreira-ti" },
               { icon: Github, label: "GitHub", value: "github.com/xgabiez", href: "https://github.com/xgabiez" },
               { icon: Mail, label: "E-mail", value: "gabriellydeabreuferreira@gmail.com", href: "mailto:gabriellydeabreuferreira@gmail.com" },
               { icon: Phone, label: "WhatsApp", value: "+55 (51) 99756-3735", href: "https://wa.me/5551997563735" },
@@ -845,7 +845,7 @@ function Footer() {
           <span>© {new Date().getFullYear()} Gabrielly Ferreira. Todos os direitos reservados.</span>
         </div>
         <div className="flex items-center gap-4">
-          <a href="https://linkedin.com/in/gabrielly-ti" target="_blank" rel="noreferrer" className="hover:text-rose transition"><Linkedin className="h-4 w-4" /></a>
+          <a href="https://linkedin.com/in/gabrielly-ferreira-ti" target="_blank" rel="noreferrer" className="hover:text-rose transition"><Linkedin className="h-4 w-4" /></a>
           <a href="https://github.com/xgabiez" target="_blank" rel="noreferrer" className="hover:text-rose transition"><Github className="h-4 w-4" /></a>
           <a href="mailto:gabriellydeabreuferreira@gmail.com" className="hover:text-rose transition"><Mail className="h-4 w-4" /></a>
         </div>
