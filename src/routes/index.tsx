@@ -136,7 +136,7 @@ function Hero() {
           <div className="mt-10 flex items-center gap-6 text-xs text-muted-foreground">
             <div><div className="text-2xl font-display font-bold text-foreground">8+</div>Anos em TI</div>
             <div className="h-8 w-px bg-border" />
-            <div><div className="text-2xl font-display font-bold text-foreground">10+</div>Projetos</div>
+            <div><div className="text-2xl font-display font-bold text-foreground">15+</div>Projetos</div>
             <div className="h-8 w-px bg-border" />
             <div><div className="text-2xl font-display font-bold text-foreground">∞</div>Aprendizado</div>
           </div>
@@ -272,10 +272,11 @@ const experiences = [
     company: "VRM Telecom, Bagé, RS | Estágio",
     period: "Jul 2021 - Jun 2022",
     items: [
-      "Apoio à administração básica de servidores",
-      "Controle de acessos de usuários",
-      "Configuração de roteadores",
-      "Atendimento técnico presencial e remoto",
+      "Emissão de notas fiscais eletrônicas (NF-e) por meio da SEFAZ",
+      "Recebimento de pagamentos e baixa de títulos no sistema",
+      "Atendimento administrativo e suporte aos processos financeiros",
+      "Apoio à administração básica de servidores e controle de acessos",
+      "Configuração de roteadores e atendimento técnico presencial/remoto",
     ],
   },
   {
@@ -452,15 +453,23 @@ function Certifications() {
   return (
     <section id="certificacoes" className="py-24">
       <div className="mx-auto max-w-6xl px-4">
-        <SectionTitle kicker="Certificações" title="Em construção contínua" sub="Espaço reservado para certificações futuras." />
+        <SectionTitle kicker="Certificações" title="Em construção contínua" sub="Bootcamps e especializações concluídas." />
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {[1, 2, 3].map((n) => (
-            <div key={n} className="glass rounded-2xl p-7 border-dashed border-rose/20 hover:border-rose/40 transition">
-              <Award className="h-6 w-6 text-gold" />
-              <div className="mt-4 font-display font-bold">Certificação em breve</div>
-              <p className="text-sm text-muted-foreground mt-1">Em andamento ou planejada para os próximos ciclos.</p>
-            </div>
-          ))}
+          <div className="glass rounded-2xl p-7 hover:border-rose/40 transition">
+            <Award className="h-6 w-6 text-gold" />
+            <div className="mt-4 font-display font-bold">Bootcamps DIO</div>
+            <p className="text-sm text-muted-foreground mt-1">Certificações em desenvolvimento e tecnologia.</p>
+          </div>
+          <div className="glass rounded-2xl p-7 hover:border-rose/40 transition">
+            <Award className="h-6 w-6 text-gold" />
+            <div className="mt-4 font-display font-bold">Governança de TIC</div>
+            <p className="text-sm text-muted-foreground mt-1">Especialização via ENAP.</p>
+          </div>
+          <div className="glass rounded-2xl p-7 border-dashed border-rose/20 hover:border-rose/40 transition">
+            <Award className="h-6 w-6 text-gold" />
+            <div className="mt-4 font-display font-bold">Certificação em breve</div>
+            <p className="text-sm text-muted-foreground mt-1">Em andamento ou planejada para os próximos ciclos.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -542,8 +551,8 @@ function Impact() {
         <SectionTitle kicker="Resultados e Impacto" title="Tecnologia que gera valor" sub="Métricas que refletem entregas reais em ambientes educacionais." />
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           <StatCard value={8} suffix="+" label="Anos de experiência em TI" icon={Server} />
-          <StatCard value={10} suffix="+" label="Plataformas educacionais e corporativas administrativas" icon={Sparkles} />
-          <StatCard value={500} suffix="+" label="Usuários atendidos e treinados" icon={Wifi} />
+          <StatCard value={3} suffix="" label="Setores de atuação (Público, Telecom e Educação)" icon={Sparkles} />
+          <StatCard value={10} suffix="+" label="Plataformas educacionais e corporativas administrativas" icon={Wifi} />
           <StatCard value={99} suffix="%" label="Disponibilidade de infraestrutura" icon={Trophy} />
         </div>
       </div>
