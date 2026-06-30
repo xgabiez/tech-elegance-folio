@@ -77,13 +77,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Gabrielly Ferreira | Analista de TI & Tecnologia Educacional" },
-      { name: "description", content: "Portfólio de Gabrielly Ferreira — Analista de TI, especialista em tecnologia educacional, gestão de infraestrutura e inovação." },
+      { title: "Gabrielly Ferreira | Analista de TI" },
+      { name: "description", content: "Portfólio de Gabrielly Ferreira — Analista de TI com experiência em infraestrutura, banco de dados Oracle, virtualização, automação, Python, Power BI, análise d" },
       { name: "author", content: "Gabrielly Ferreira" },
       { property: "og:title", content: "Gabrielly Ferreira | Analista de TI" },
-      { property: "og:description", content: "Transformando tecnologia em soluções que impulsionam educação, inovação e resultados." },
+      { property: "og:description", content: "Portfólio de Gabrielly Ferreira — Analista de TI com experiência em infraestrutura, banco de dados Oracle, virtualização, automação, Python, Power BI, análise d" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Gabrielly Ferreira | Analista de TI" },
+      { name: "twitter:description", content: "Portfólio de Gabrielly Ferreira — Analista de TI com experiência em infraestrutura, banco de dados Oracle, virtualização, automação, Python, Power BI, análise d" },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/5388f4bf-751c-439d-8d24-b8b7984d0dd3/id-preview-e6c34237--636c44e7-f03e-4ba1-9b73-197dd4e419b5.lovable.app-1782835886561.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/5388f4bf-751c-439d-8d24-b8b7984d0dd3/id-preview-e6c34237--636c44e7-f03e-4ba1-9b73-197dd4e419b5.lovable.app-1782835886561.png" },
     ],
     links: [
       {
