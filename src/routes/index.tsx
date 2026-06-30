@@ -453,15 +453,23 @@ function Certifications() {
   return (
     <section id="certificacoes" className="py-24">
       <div className="mx-auto max-w-6xl px-4">
-        <SectionTitle kicker="Certificações" title="Em construção contínua" sub="Espaço reservado para certificações futuras." />
+        <SectionTitle kicker="Certificações" title="Em construção contínua" sub="Bootcamps e especializações concluídas." />
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {[1, 2, 3].map((n) => (
-            <div key={n} className="glass rounded-2xl p-7 border-dashed border-rose/20 hover:border-rose/40 transition">
-              <Award className="h-6 w-6 text-gold" />
-              <div className="mt-4 font-display font-bold">Certificação em breve</div>
-              <p className="text-sm text-muted-foreground mt-1">Em andamento ou planejada para os próximos ciclos.</p>
-            </div>
-          ))}
+          <div className="glass rounded-2xl p-7 hover:border-rose/40 transition">
+            <Award className="h-6 w-6 text-gold" />
+            <div className="mt-4 font-display font-bold">Bootcamps DIO</div>
+            <p className="text-sm text-muted-foreground mt-1">Certificações em desenvolvimento e tecnologia.</p>
+          </div>
+          <div className="glass rounded-2xl p-7 hover:border-rose/40 transition">
+            <Award className="h-6 w-6 text-gold" />
+            <div className="mt-4 font-display font-bold">Governança de TIC</div>
+            <p className="text-sm text-muted-foreground mt-1">Especialização via ENAP.</p>
+          </div>
+          <div className="glass rounded-2xl p-7 border-dashed border-rose/20 hover:border-rose/40 transition">
+            <Award className="h-6 w-6 text-gold" />
+            <div className="mt-4 font-display font-bold">Certificação em breve</div>
+            <p className="text-sm text-muted-foreground mt-1">Em andamento ou planejada para os próximos ciclos.</p>
+          </div>
         </div>
       </div>
     </section>
