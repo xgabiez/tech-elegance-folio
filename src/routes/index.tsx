@@ -6,6 +6,9 @@ import {
   Briefcase, Trophy, BookOpen, Award, Send, MapPin, Wifi,
   Server, Palette, FileSpreadsheet, Brain, TrendingUp, Lock, ExternalLink,
 } from "lucide-react";
+import {
+  Accordion, AccordionContent, AccordionItem, AccordionTrigger,
+} from "@/components/ui/accordion";
 import portraitAsset from "@/assets/gabrielly.jpg.asset.json";
 const portrait = portraitAsset.url;
 
