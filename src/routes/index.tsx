@@ -453,27 +453,232 @@ function Education() {
 
 /* ---------- Certifications ---------- */
 function Certifications() {
+  const gh = "https://github.com/xgabiez";
+  const institutions: {
+    name: string;
+    icon: string;
+    certs: {
+      title: string;
+      hours?: string;
+      date?: string;
+      pdf: string;
+      projects?: { name: string; url: string }[];
+      badge?: string;
+    }[];
+  }[] = [
+    {
+      name: "Digital Innovation One (DIO)",
+      icon: "📚",
+      certs: [
+        {
+          title: "Bootcamp Santander 2025 — Ciência de Dados com Python",
+          hours: "63h",
+          date: "2025",
+          pdf: "/certificados/Bootcamp_Santander2025_CienciadeDadosComPython_63h.pdf",
+          badge: "🚀 Projetos desenvolvidos",
+          projects: [
+            { name: "Ciencia_de_Dados_com_Python_IMERSAO_SANTANDER", url: `${gh}/Ciencia_de_Dados_com_Python_IMERSAO_SANTANDER` },
+            { name: "Analise-de-dados-comPython", url: `${gh}/Analise-de-dados-comPython` },
+            { name: "aulas_datascience_SCTECH", url: `${gh}/aulas_datascience_SCTECH` },
+            { name: "Inteligencia-Artificial-Previsoes-ComPython-IA", url: `${gh}/Inteligencia-Artificial-Previsoes-ComPython-IA` },
+          ],
+        },
+        {
+          title: "Bootcamp Klabin — Excel e Power BI Dashboards",
+          hours: "90h",
+          date: "2024",
+          pdf: "/certificados/Bootcamp_Klabin_ExcelEPowerBi_Dashboards_90h.pdf",
+          badge: "💻 Aplicação prática",
+          projects: [
+            { name: "Power_BI_Dashboards", url: `${gh}/Power_BI_Dashboards` },
+            { name: "Modelo_Ecommerce_PowerBI_StarSchema_FormulasDAX", url: `${gh}/Modelo_Ecommerce_PowerBI_StarSchema_FormulasDAX` },
+            { name: "PowerBi_Azure_integration_Mysql", url: `${gh}/PowerBi_Azure_integration_Mysql` },
+            { name: "Dashboard_vendas_Xbox_Excel", url: `${gh}/Dashboard_vendas_Xbox_Excel` },
+          ],
+        },
+        {
+          title: "Formação Power BI Analyst",
+          hours: "60h",
+          pdf: "/certificados/Formação_PowerBi_Analyst_60h.pdf",
+          badge: "💻 Aplicação prática",
+          projects: [
+            { name: "Power_BI_Dashboards", url: `${gh}/Power_BI_Dashboards` },
+            { name: "Modelo_Ecommerce_PowerBI_StarSchema_FormulasDAX", url: `${gh}/Modelo_Ecommerce_PowerBI_StarSchema_FormulasDAX` },
+          ],
+        },
+      ],
+    },
+    {
+      name: "ENAP — Escola Nacional de Administração Pública",
+      icon: "📚",
+      certs: [
+        {
+          title: "Governança de TIC no Setor Público",
+          pdf: "/certificados/Certificado_Governanca_TIC.pdf",
+        },
+      ],
+    },
+    {
+      name: "Hashtag Treinamentos",
+      icon: "📚",
+      certs: [
+        {
+          title: "Jornada Python",
+          hours: "8h",
+          pdf: "/certificados/Hashtag_JornadaPython_8h.pdf",
+          badge: "🚀 Projetos desenvolvidos",
+          projects: [
+            { name: "Automacao-de-processos-comPython", url: `${gh}/Automacao-de-processos-comPython` },
+            { name: "Analise-de-dados-comPython", url: `${gh}/Analise-de-dados-comPython` },
+          ],
+        },
+      ],
+    },
+  ];
+
+  const totalCerts = institutions.reduce((a, i) => a + i.certs.length, 0);
+  const totalBootcamps = institutions.reduce(
+    (a, i) => a + i.certs.filter((c) => /bootcamp/i.test(c.title)).length, 0,
+  );
+  const projectSet = new Set<string>();
+  institutions.forEach((i) => i.certs.forEach((c) => c.projects?.forEach((p) => projectSet.add(p.url))));
+  const totalProjects = projectSet.size;
+
+  const stats = [
+    { icon: Award, label: "Certificados concluídos", value: totalCerts },
+    { icon: Trophy, label: "Bootcamps realizados", value: totalBootcamps },
+    { icon: Code2, label: "Projetos desenvolvidos a partir dos estudos", value: totalProjects },
+  ];
+
   return (
     <section id="certificacoes" className="py-24">
       <div className="mx-auto max-w-6xl px-4">
-        <SectionTitle kicker="Certificações" title="Em construção contínua" sub="Bootcamps e especializações concluídas." />
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          <div className="glass rounded-2xl p-7 hover:border-rose/40 transition">
-            <Award className="h-6 w-6 text-gold" />
-            <div className="mt-4 font-display font-bold">Bootcamps DIO</div>
-            <p className="text-sm text-muted-foreground mt-1">Certificações em desenvolvimento e tecnologia.</p>
-          </div>
-          <div className="glass rounded-2xl p-7 hover:border-rose/40 transition">
-            <Award className="h-6 w-6 text-gold" />
-            <div className="mt-4 font-display font-bold">Governança de TIC</div>
-            <p className="text-sm text-muted-foreground mt-1">Especialização via ENAP.</p>
-          </div>
-          <div className="glass rounded-2xl p-7 border-dashed border-rose/20 hover:border-rose/40 transition">
-            <Award className="h-6 w-6 text-gold" />
-            <div className="mt-4 font-display font-bold">Certificação em breve</div>
-            <p className="text-sm text-muted-foreground mt-1">Em andamento ou planejada para os próximos ciclos.</p>
-          </div>
+        <SectionTitle
+          kicker="Certificações"
+          title="Aprendizado Contínuo"
+          sub="Cursos, bootcamps e especializações que sustentam minha evolução profissional."
+        />
+
+        {/* Estatísticas */}
+        <div className="grid sm:grid-cols-3 gap-4 mb-10">
+          {stats.map((s) => (
+            <div key={s.label} className="glass rounded-2xl p-6 flex items-center gap-4 hover:border-rose/40 transition">
+              <span className="h-12 w-12 grid place-items-center rounded-xl gradient-rose-gold text-background shrink-0">
+                <s.icon className="h-5 w-5" />
+              </span>
+              <div>
+                <div className="font-display text-3xl font-bold text-gradient">{s.value}+</div>
+                <div className="text-xs text-muted-foreground mt-0.5">{s.label}</div>
+              </div>
+            </div>
+          ))}
         </div>
+
+        {/* Accordion por instituição */}
+        <Accordion type="multiple" defaultValue={[institutions[0].name]} className="space-y-4">
+          {institutions.map((inst) => (
+            <AccordionItem
+              key={inst.name}
+              value={inst.name}
+              className="glass rounded-2xl border border-white/5 px-6 data-[state=open]:border-rose/30 transition"
+            >
+              <AccordionTrigger className="hover:no-underline py-5">
+                <div className="flex items-center gap-3 text-left">
+                  <span className="text-2xl">{inst.icon}</span>
+                  <div>
+                    <div className="font-display font-bold text-base">{inst.name}</div>
+                    <div className="text-xs text-muted-foreground mt-0.5">
+                      {inst.certs.length} {inst.certs.length === 1 ? "certificado" : "certificados"}
+                    </div>
+                  </div>
+                </div>
+              </AccordionTrigger>
+              <AccordionContent className="pt-2 pb-6">
+                <div className="grid md:grid-cols-2 gap-4">
+                  {inst.certs.map((c) => (
+                    <div
+                      key={c.title}
+                      className="group relative rounded-2xl p-5 bg-surface/40 border border-white/5 hover:border-rose/40 hover:-translate-y-0.5 transition"
+                    >
+                      <div className="flex items-start gap-3">
+                        <span className="h-10 w-10 grid place-items-center rounded-lg border border-gold/30 text-gold shrink-0">
+                          <Award className="h-5 w-5" />
+                        </span>
+                        <div className="min-w-0 flex-1">
+                          <div className="font-display font-semibold text-sm leading-snug">{c.title}</div>
+                          <div className="text-xs text-muted-foreground mt-1">{inst.name.split(" — ")[0]}</div>
+                          <div className="flex flex-wrap gap-2 mt-2">
+                            {c.hours && (
+                              <span className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full border border-rose/30 text-rose">
+                                {c.hours}
+                              </span>
+                            )}
+                            {c.date && (
+                              <span className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full border border-white/10 text-muted-foreground">
+                                {c.date}
+                              </span>
+                            )}
+                            {c.badge && (
+                              <span className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full gradient-rose-gold text-background font-semibold">
+                                {c.badge}
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        <a
+                          href={c.pdf}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg gradient-rose-gold text-background font-semibold hover:opacity-90 transition"
+                        >
+                          <ExternalLink className="h-3.5 w-3.5" />
+                          Visualizar Certificado
+                        </a>
+                        {c.projects && c.projects.length > 0 && (
+                          <a
+                            href={c.projects[0].url}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg border border-rose/40 text-rose hover:bg-rose/10 transition"
+                          >
+                            <Github className="h-3.5 w-3.5" />
+                            Ver Projeto
+                          </a>
+                        )}
+                      </div>
+
+                      {c.projects && c.projects.length > 1 && (
+                        <div className="mt-3 pt-3 border-t border-white/5">
+                          <div className="text-[10px] uppercase tracking-wider text-muted-foreground mb-1.5">
+                            Repositórios relacionados
+                          </div>
+                          <ul className="space-y-1">
+                            {c.projects.slice(1).map((p) => (
+                              <li key={p.url}>
+                                <a
+                                  href={p.url}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  className="text-xs text-muted-foreground hover:text-rose inline-flex items-center gap-1 transition"
+                                >
+                                  <Github className="h-3 w-3" />
+                                  {p.name}
+                                </a>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
       </div>
     </section>
   );
