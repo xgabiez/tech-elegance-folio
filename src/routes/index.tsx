@@ -771,10 +771,51 @@ function Impact() {
 /* ---------- Contact ---------- */
 function Contact() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [errors, setErrors] = useState<{ name?: string; email?: string; message?: string }>({});
+
+  const validate = (data: FormData) => {
+    const errs: { name?: string; email?: string; message?: string } = {};
+    const name = String(data.get("name") ?? "").trim();
+    const email = String(data.get("email") ?? "").trim();
+    const message = String(data.get("message") ?? "").trim();
+    if (!name) errs.name = "Informe seu nome.";
+    else if (name.length > 100) errs.name = "Nome muito longo (máx. 100).";
+    if (!email) errs.email = "Informe seu e-mail.";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errs.email = "E-mail inválido.";
+    if (!message) errs.message = "Escreva uma mensagem.";
+    else if (message.length < 10) errs.message = "Mensagem muito curta (mín. 10 caracteres).";
+    else if (message.length > 2000) errs.message = "Mensagem muito longa (máx. 2000).";
+    return errs;
+  };
+
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
     const formData = new FormData(form);
+
+    // Honeypot — se preenchido, é bot: fingimos sucesso e descartamos.
+    if (String(formData.get("website") ?? "").trim() !== "") {
+      form.reset();
+      setStatus("sent");
+      setTimeout(() => setStatus("idle"), 5000);
+      return;
+    }
+
+    const errs = validate(formData);
+    setErrors(errs);
+    if (Object.keys(errs).length > 0) return;
+
+    const name = String(formData.get("name") ?? "").trim();
+    const email = String(formData.get("email") ?? "").trim();
+    const subject = String(formData.get("subject") ?? "").trim() || "Contato pelo portfólio";
+
+    // Formspree usa _replyto para o Reply-To do e-mail recebido.
+    formData.set("_replyto", email);
+    formData.set("_subject", `[Portfólio] ${subject} — ${name}`);
+    // Link clicável no Gmail: abre nova resposta direta para o visitante.
+    const mailto = `mailto:${email}?subject=${encodeURIComponent("Re: " + subject)}`;
+    formData.set(`Responder para ${name}`, mailto);
+
     setStatus("sending");
     try {
       const res = await fetch("https://formspree.io/f/mdarwggd", {
@@ -784,6 +825,7 @@ function Contact() {
       });
       if (!res.ok) throw new Error("Falha no envio");
       form.reset();
+      setErrors({});
       setStatus("sent");
       setTimeout(() => setStatus("idle"), 5000);
     } catch {
