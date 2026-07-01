@@ -874,7 +874,22 @@ function Contact() {
               <Field label="Nome" name="name" placeholder="Seu nome" error={errors.name} />
               <Field label="E-mail" name="email" type="email" placeholder="voce@email.com" error={errors.email} />
             </div>
-            <Field label="Assunto" name="subject" placeholder="Como posso ajudar?" required={false} />
+            <div>
+              <label htmlFor="subject" className="text-xs uppercase tracking-wider text-muted-foreground">Assunto</label>
+              <select
+                id="subject"
+                name="subject"
+                defaultValue=""
+                className="mt-2 w-full rounded-xl bg-background/40 border border-border focus:border-rose/60 focus:outline-none px-4 py-3 text-foreground transition appearance-none cursor-pointer bg-[url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23a1a1aa%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><polyline points=%226 9 12 15 18 9%22/></svg>')] bg-no-repeat bg-[right_1rem_center]"
+              >
+                <option value="" disabled className="bg-background text-foreground">Selecione um assunto…</option>
+                <option value="💼 Oportunidade de trabalho" className="bg-background text-foreground">💼 Oportunidade de trabalho</option>
+                <option value="🤝 Parceria" className="bg-background text-foreground">🤝 Parceria</option>
+                <option value="💻 Projeto freelancer" className="bg-background text-foreground">💻 Projeto freelancer</option>
+                <option value="📚 Mentoria / Networking" className="bg-background text-foreground">📚 Mentoria / Networking</option>
+                <option value="✉️ Outro" className="bg-background text-foreground">✉️ Outro</option>
+              </select>
+            </div>
             <div>
               <label htmlFor="message" className="text-xs uppercase tracking-wider text-muted-foreground">Mensagem</label>
               <textarea id="message" name="message" rows={5} maxLength={2000} placeholder="Conte um pouco sobre o projeto (mín. 10 caracteres)..." aria-invalid={!!errors.message} className="mt-2 w-full rounded-xl bg-background/40 border border-border focus:border-rose/60 focus:outline-none px-4 py-3 text-foreground placeholder:text-muted-foreground/60 transition aria-[invalid=true]:border-red-500/60" />
