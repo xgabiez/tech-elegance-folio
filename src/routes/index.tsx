@@ -771,10 +771,51 @@ function Impact() {
 /* ---------- Contact ---------- */
 function Contact() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [errors, setErrors] = useState<{ name?: string; email?: string; message?: string }>({});
+
+  const validate = (data: FormData) => {
+    const errs: { name?: string; email?: string; message?: string } = {};
+    const name = String(data.get("name") ?? "").trim();
+    const email = String(data.get("email") ?? "").trim();
+    const message = String(data.get("message") ?? "").trim();
+    if (!name) errs.name = "Informe seu nome.";
+    else if (name.length > 100) errs.name = "Nome muito longo (máx. 100).";
+    if (!email) errs.email = "Informe seu e-mail.";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errs.email = "E-mail inválido.";
+    if (!message) errs.message = "Escreva uma mensagem.";
+    else if (message.length < 10) errs.message = "Mensagem muito curta (mín. 10 caracteres).";
+    else if (message.length > 2000) errs.message = "Mensagem muito longa (máx. 2000).";
+    return errs;
+  };
+
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
     const formData = new FormData(form);
+
+    // Honeypot — se preenchido, é bot: fingimos sucesso e descartamos.
+    if (String(formData.get("website") ?? "").trim() !== "") {
+      form.reset();
+      setStatus("sent");
+      setTimeout(() => setStatus("idle"), 5000);
+      return;
+    }
+
+    const errs = validate(formData);
+    setErrors(errs);
+    if (Object.keys(errs).length > 0) return;
+
+    const name = String(formData.get("name") ?? "").trim();
+    const email = String(formData.get("email") ?? "").trim();
+    const subject = String(formData.get("subject") ?? "").trim() || "Contato pelo portfólio";
+
+    // Formspree usa _replyto para o Reply-To do e-mail recebido.
+    formData.set("_replyto", email);
+    formData.set("_subject", `[Portfólio] ${subject} — ${name}`);
+    // Link clicável no Gmail: abre nova resposta direta para o visitante.
+    const mailto = `mailto:${email}?subject=${encodeURIComponent("Re: " + subject)}`;
+    formData.set(`Responder para ${name}`, mailto);
+
     setStatus("sending");
     try {
       const res = await fetch("https://formspree.io/f/mdarwggd", {
@@ -784,6 +825,7 @@ function Contact() {
       });
       if (!res.ok) throw new Error("Falha no envio");
       form.reset();
+      setErrors({});
       setStatus("sent");
       setTimeout(() => setStatus("idle"), 5000);
     } catch {
@@ -820,15 +862,23 @@ function Contact() {
             })}
           </div>
 
-          <form onSubmit={onSubmit} className="glass-strong rounded-3xl p-7 md:p-9 space-y-5">
-            <div className="grid sm:grid-cols-2 gap-5">
-              <Field label="Nome" name="name" placeholder="Seu nome" />
-              <Field label="E-mail" name="email" type="email" placeholder="voce@email.com" />
+          <form onSubmit={onSubmit} noValidate className="glass-strong rounded-3xl p-7 md:p-9 space-y-5 relative">
+            {/* Honeypot invisível — humanos não veem, bots preenchem. */}
+            <div aria-hidden="true" className="absolute -left-[9999px] top-auto h-0 w-0 overflow-hidden">
+              <label>
+                Não preencha este campo:
+                <input type="text" name="website" tabIndex={-1} autoComplete="off" />
+              </label>
             </div>
-            <Field label="Assunto" name="subject" placeholder="Como posso ajudar?" />
+            <div className="grid sm:grid-cols-2 gap-5">
+              <Field label="Nome" name="name" placeholder="Seu nome" error={errors.name} />
+              <Field label="E-mail" name="email" type="email" placeholder="voce@email.com" error={errors.email} />
+            </div>
+            <Field label="Assunto" name="subject" placeholder="Como posso ajudar?" required={false} />
             <div>
-              <label className="text-xs uppercase tracking-wider text-muted-foreground">Mensagem</label>
-              <textarea required name="message" rows={5} placeholder="Conte um pouco sobre o projeto..." className="mt-2 w-full rounded-xl bg-background/40 border border-border focus:border-rose/60 focus:outline-none px-4 py-3 text-foreground placeholder:text-muted-foreground/60 transition" />
+              <label htmlFor="message" className="text-xs uppercase tracking-wider text-muted-foreground">Mensagem</label>
+              <textarea id="message" name="message" rows={5} maxLength={2000} placeholder="Conte um pouco sobre o projeto (mín. 10 caracteres)..." aria-invalid={!!errors.message} className="mt-2 w-full rounded-xl bg-background/40 border border-border focus:border-rose/60 focus:outline-none px-4 py-3 text-foreground placeholder:text-muted-foreground/60 transition aria-[invalid=true]:border-red-500/60" />
+              {errors.message && <p className="mt-1 text-xs text-red-400">{errors.message}</p>}
             </div>
             <button type="submit" disabled={status === "sending"} className="inline-flex items-center justify-center gap-2 rounded-full gradient-rose-gold px-6 py-3 font-semibold text-primary-foreground glow-rose hover:scale-[1.02] transition w-full sm:w-auto disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100">
               <Send className="h-4 w-4" />
@@ -847,12 +897,13 @@ function Contact() {
   );
 }
 
-function Field({ label, name, type = "text", placeholder }: { label: string; name: string; type?: string; placeholder?: string }) {
+function Field({ label, name, type = "text", placeholder, error, required = true }: { label: string; name: string; type?: string; placeholder?: string; error?: string; required?: boolean }) {
   return (
     <div>
       <label htmlFor={name} className="text-xs uppercase tracking-wider text-muted-foreground">{label}</label>
-      <input id={name} name={name} type={type} required placeholder={placeholder}
-        className="mt-2 w-full rounded-xl bg-background/40 border border-border focus:border-rose/60 focus:outline-none px-4 py-3 text-foreground placeholder:text-muted-foreground/60 transition" />
+      <input id={name} name={name} type={type} placeholder={placeholder} maxLength={type === "email" ? 255 : 100} aria-invalid={!!error}
+        className="mt-2 w-full rounded-xl bg-background/40 border border-border focus:border-rose/60 focus:outline-none px-4 py-3 text-foreground placeholder:text-muted-foreground/60 transition aria-[invalid=true]:border-red-500/60" />
+      {error && <p className="mt-1 text-xs text-red-400">{error}</p>}
     </div>
   );
 }
