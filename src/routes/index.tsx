@@ -770,11 +770,26 @@ function Impact() {
 
 /* ---------- Contact ---------- */
 function Contact() {
-  const [sent, setSent] = useState(false);
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSent(true);
-    setTimeout(() => setSent(false), 4000);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    setStatus("sending");
+    try {
+      const res = await fetch("https://formspree.io/f/mdarwggd", {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: formData,
+      });
+      if (!res.ok) throw new Error("Falha no envio");
+      form.reset();
+      setStatus("sent");
+      setTimeout(() => setStatus("idle"), 5000);
+    } catch {
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 5000);
+    }
   };
   return (
     <section id="contato" className="py-24">
@@ -813,11 +828,18 @@ function Contact() {
             <Field label="Assunto" name="subject" placeholder="Como posso ajudar?" />
             <div>
               <label className="text-xs uppercase tracking-wider text-muted-foreground">Mensagem</label>
-              <textarea required rows={5} placeholder="Conte um pouco sobre o projeto..." className="mt-2 w-full rounded-xl bg-background/40 border border-border focus:border-rose/60 focus:outline-none px-4 py-3 text-foreground placeholder:text-muted-foreground/60 transition" />
+              <textarea required name="message" rows={5} placeholder="Conte um pouco sobre o projeto..." className="mt-2 w-full rounded-xl bg-background/40 border border-border focus:border-rose/60 focus:outline-none px-4 py-3 text-foreground placeholder:text-muted-foreground/60 transition" />
             </div>
-            <button type="submit" className="inline-flex items-center justify-center gap-2 rounded-full gradient-rose-gold px-6 py-3 font-semibold text-primary-foreground glow-rose hover:scale-[1.02] transition w-full sm:w-auto">
-              <Send className="h-4 w-4" /> {sent ? "Mensagem enviada" : "Enviar mensagem"}
+            <button type="submit" disabled={status === "sending"} className="inline-flex items-center justify-center gap-2 rounded-full gradient-rose-gold px-6 py-3 font-semibold text-primary-foreground glow-rose hover:scale-[1.02] transition w-full sm:w-auto disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100">
+              <Send className="h-4 w-4" />
+              {status === "sending" ? "Enviando..." : status === "sent" ? "Mensagem enviada" : "Enviar mensagem"}
             </button>
+            {status === "sent" && (
+              <p className="text-sm text-emerald-400">Mensagem enviada com sucesso! Retornarei em breve.</p>
+            )}
+            {status === "error" && (
+              <p className="text-sm text-red-400">Não foi possível enviar sua mensagem. Tente novamente ou envie diretamente por e-mail.</p>
+            )}
           </form>
         </div>
       </div>
