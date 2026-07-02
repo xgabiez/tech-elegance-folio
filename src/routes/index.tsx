@@ -345,17 +345,47 @@ function Experience() {
 
 /* ---------- Projects ---------- */
 const projects = [
-  { title: "Portal de Gestão Escolar", desc: "Centralização de informações e processos escolares.", tags: ["Web", "Gestão", "UX"] },
-  { title: "Dashboard de Indicadores", desc: "Monitoramento de métricas e indicadores educacionais.", tags: ["Power BI", "SQL", "Análise"] },
-  { title: "Projetos de Inovação Educacional", desc: "Aplicação de tecnologias para melhorar processos pedagógicos e administrativos.", tags: ["Inovação", "EdTech"] },
-  { title: "Portfólio de Desenvolvimento", desc: "Projetos pessoais desenvolvidos para aprimoramento técnico.", tags: ["Python", "HTML/CSS", "JS"] },
+  {
+    title: "🗓️ Sistema Inteligente de Grade Horária",
+    desc: "Geração automática de grades horárias escolares considerando disponibilidade dos professores, carga horária das disciplinas, turmas, salas e restrições. Reduz o tempo de elaboração manual, evita conflitos e otimiza a distribuição das aulas.",
+    tags: ["Python", "Banco de Dados", "Algoritmos"],
+  },
+  {
+    title: "📊 Dashboard de Indicadores Educacionais",
+    desc: "Dashboard interativo para acompanhamento de indicadores acadêmicos e administrativos: frequência, desempenho, matrículas, ocupação de turmas e indicadores institucionais.",
+    tags: ["Power BI", "SQL", "Análise de Dados"],
+  },
+  {
+    title: "🖥️ Sistema de Inventário de TI",
+    desc: "Gerenciamento de ativos de tecnologia: computadores, notebooks, impressoras, switches, licenças de software, patrimônio e histórico de manutenção.",
+    tags: ["Python", "Banco de Dados", "Gestão de TI"],
+  },
+  {
+    title: "🎫 Portal de Chamados de TI",
+    desc: "Abertura e acompanhamento de chamados técnicos, com gerenciamento de solicitações, definição de prioridades, histórico de atendimentos e acompanhamento de status.",
+    tags: ["Python", "React", "Banco de Dados"],
+  },
+  {
+    title: "🤖 Automação de Relatórios Corporativos",
+    desc: "Automação de consultas em banco de dados Oracle, geração de relatórios, tratamento de dados e integração com Power BI, reduzindo tarefas repetitivas.",
+    tags: ["Python", "Oracle", "Power BI"],
+  },
+  {
+    title: "📚 Portfólio de Desenvolvimento",
+    desc: "Coleção de projetos desenvolvidos durante estudos e bootcamps: Python, desenvolvimento web, ciência de dados, automação de processos, Power BI e análise de dados. Atualizado continuamente conforme novos repositórios são publicados no GitHub.",
+    tags: ["Python", "HTML/CSS", "JavaScript", "Power BI"],
+  },
 ];
 
 function Projects() {
   return (
     <section id="projetos" className="py-24">
       <div className="mx-auto max-w-6xl px-4">
-        <SectionTitle kicker="Projetos" title="Soluções com propósito" sub="Iniciativas que conectam tecnologia, gestão e educação." />
+        <SectionTitle
+          kicker="Roadmap de Projetos"
+          title="Soluções com propósito"
+          sub="Estes projetos representam soluções que pretendo desenvolver ao longo da minha evolução profissional. O objetivo é transformar experiências reais da área de TI em aplicações práticas, documentadas e disponíveis no meu GitHub."
+        />
         <div className="grid sm:grid-cols-2 gap-5">
           {projects.map((p) => (
             <article key={p.title} className="group relative glass rounded-3xl p-7 overflow-hidden hover:-translate-y-1 transition-all duration-300">
