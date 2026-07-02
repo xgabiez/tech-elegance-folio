@@ -487,6 +487,7 @@ function Certifications() {
   const institutions: {
     name: string;
     icon: string;
+    description?: string;
     certs: {
       title: string;
       hours?: string;
@@ -494,6 +495,8 @@ function Certifications() {
       pdf: string;
       projects?: { name: string; url: string }[];
       badge?: string;
+      category?: string;
+      group?: string;
     }[];
   }[] = [
     {
@@ -564,6 +567,50 @@ function Certifications() {
         },
       ],
     },
+    {
+      name: "SCTECH",
+      icon: "🎓",
+      description:
+        "Programa de capacitação em Tecnologia com participação em eventos de carreira, palestras técnicas, trilhas de aprendizagem e bootcamps, voltados ao desenvolvimento contínuo em Análise de Dados, Desenvolvimento de Software e Inteligência Artificial.",
+      certs: [
+        {
+          title: "Análise de Dados",
+          category: "Palestra",
+          group: "📢 Palestras",
+          pdf: "/certificados/SCTECH_Palestras_Analise_de_Dados.pdf.pdf",
+        },
+        {
+          title: "Desenvolvimento de Software",
+          category: "Palestra",
+          group: "📢 Palestras",
+          pdf: "/certificados/SCTECH_Palestras_Desenvolvimento_de_Software.pdf.pdf",
+        },
+        {
+          title: "Inteligência Artificial",
+          category: "Palestra",
+          group: "📢 Palestras",
+          pdf: "/certificados/SCTECH_Palestras_Inteligencia_Artificial.pdf.pdf",
+        },
+        {
+          title: "Análise de Dados",
+          category: "Trilha Rápida",
+          group: "🚀 Trilhas Rápidas",
+          pdf: "/certificados/SCTECH_Trilha_Rapida_Analise_de_Dados.pdf.pdf",
+        },
+        {
+          title: "Desenvolvimento de Software",
+          category: "Trilha Rápida",
+          group: "🚀 Trilhas Rápidas",
+          pdf: "/certificados/SCTECH_Trilha_Rapida_Desenvolvimento_de_Software.pdf.pdf",
+        },
+        {
+          title: "Inteligência Artificial",
+          category: "Trilha Rápida",
+          group: "🚀 Trilhas Rápidas",
+          pdf: "/certificados/SCTECH_Trilha_Rapida_Inteligencia_Artificial.pdf.pdf",
+        },
+      ],
+    },
   ];
 
   const totalCerts = institutions.reduce((a, i) => a + i.certs.length, 0);
@@ -586,7 +633,7 @@ function Certifications() {
         <SectionTitle
           kicker="Certificações"
           title="Aprendizado Contínuo"
-          sub="Cursos, bootcamps e especializações que sustentam minha evolução profissional."
+          sub="Minha evolução profissional é construída continuamente por meio de bootcamps, cursos, certificações, eventos de tecnologia, trilhas de aprendizagem e projetos práticos. Cada experiência representa novos conhecimentos aplicados ao meu desenvolvimento técnico e profissional."
         />
 
         {/* Estatísticas */}
