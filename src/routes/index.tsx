@@ -487,6 +487,7 @@ function Certifications() {
   const institutions: {
     name: string;
     icon: string;
+    description?: string;
     certs: {
       title: string;
       hours?: string;
@@ -494,6 +495,8 @@ function Certifications() {
       pdf: string;
       projects?: { name: string; url: string }[];
       badge?: string;
+      category?: string;
+      group?: string;
     }[];
   }[] = [
     {
@@ -564,6 +567,50 @@ function Certifications() {
         },
       ],
     },
+    {
+      name: "SCTECH",
+      icon: "🎓",
+      description:
+        "Programa de capacitação em Tecnologia com participação em eventos de carreira, palestras técnicas, trilhas de aprendizagem e bootcamps, voltados ao desenvolvimento contínuo em Análise de Dados, Desenvolvimento de Software e Inteligência Artificial.",
+      certs: [
+        {
+          title: "Análise de Dados",
+          category: "Palestra",
+          group: "📢 Palestras",
+          pdf: "/certificados/SCTECH_Palestras_Analise_de_Dados.pdf.pdf",
+        },
+        {
+          title: "Desenvolvimento de Software",
+          category: "Palestra",
+          group: "📢 Palestras",
+          pdf: "/certificados/SCTECH_Palestras_Desenvolvimento_de_Software.pdf.pdf",
+        },
+        {
+          title: "Inteligência Artificial",
+          category: "Palestra",
+          group: "📢 Palestras",
+          pdf: "/certificados/SCTECH_Palestras_Inteligencia_Artificial.pdf.pdf",
+        },
+        {
+          title: "Análise de Dados",
+          category: "Trilha Rápida",
+          group: "🚀 Trilhas Rápidas",
+          pdf: "/certificados/SCTECH_Trilha_Rapida_Analise_de_Dados.pdf.pdf",
+        },
+        {
+          title: "Desenvolvimento de Software",
+          category: "Trilha Rápida",
+          group: "🚀 Trilhas Rápidas",
+          pdf: "/certificados/SCTECH_Trilha_Rapida_Desenvolvimento_de_Software.pdf.pdf",
+        },
+        {
+          title: "Inteligência Artificial",
+          category: "Trilha Rápida",
+          group: "🚀 Trilhas Rápidas",
+          pdf: "/certificados/SCTECH_Trilha_Rapida_Inteligencia_Artificial.pdf.pdf",
+        },
+      ],
+    },
   ];
 
   const totalCerts = institutions.reduce((a, i) => a + i.certs.length, 0);
@@ -586,7 +633,7 @@ function Certifications() {
         <SectionTitle
           kicker="Certificações"
           title="Aprendizado Contínuo"
-          sub="Cursos, bootcamps e especializações que sustentam minha evolução profissional."
+          sub="Minha evolução profissional é construída continuamente por meio de bootcamps, cursos, certificações, eventos de tecnologia, trilhas de aprendizagem e projetos práticos. Cada experiência representa novos conhecimentos aplicados ao meu desenvolvimento técnico e profissional."
         />
 
         {/* Estatísticas */}
@@ -624,8 +671,14 @@ function Certifications() {
                 </div>
               </AccordionTrigger>
               <AccordionContent className="pt-2 pb-6">
-                <div className="grid md:grid-cols-2 gap-4">
-                  {inst.certs.map((c) => (
+                {inst.description && (
+                  <p className="text-sm text-muted-foreground mb-5 leading-relaxed">
+                    {inst.description}
+                  </p>
+                )}
+                {(() => {
+                  const groups = Array.from(new Set(inst.certs.map((c) => c.group).filter(Boolean))) as string[];
+                  const renderCard = (c: (typeof inst.certs)[number]) => (
                     <div
                       key={c.title}
                       className="group relative rounded-2xl p-5 bg-surface/40 border border-white/5 hover:border-rose/40 hover:-translate-y-0.5 transition"
@@ -638,6 +691,11 @@ function Certifications() {
                           <div className="font-display font-semibold text-sm leading-snug">{c.title}</div>
                           <div className="text-xs text-muted-foreground mt-1">{inst.name.split(" — ")[0]}</div>
                           <div className="flex flex-wrap gap-2 mt-2">
+                            {c.category && (
+                              <span className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full border border-gold/30 text-gold">
+                                {c.category}
+                              </span>
+                            )}
                             {c.hours && (
                               <span className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full border border-rose/30 text-rose">
                                 {c.hours}
@@ -703,8 +761,29 @@ function Certifications() {
                         </div>
                       )}
                     </div>
-                  ))}
-                </div>
+                  );
+                  if (groups.length === 0) {
+                    return (
+                      <div className="grid md:grid-cols-2 gap-4">
+                        {inst.certs.map(renderCard)}
+                      </div>
+                    );
+                  }
+                  return (
+                    <div className="space-y-6">
+                      {groups.map((g) => (
+                        <div key={g}>
+                          <div className="text-xs font-display font-semibold uppercase tracking-wider text-rose mb-3">
+                            {g}
+                          </div>
+                          <div className="grid md:grid-cols-2 gap-4">
+                            {inst.certs.filter((c) => c.group === g).map(renderCard)}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  );
+                })()}
               </AccordionContent>
             </AccordionItem>
           ))}
