@@ -797,6 +797,7 @@ function Certifications() {
 function Learning() {
   const topics = [
     { icon: Brain, t: "Inteligência Artificial" },
+    { icon: BarChart3, t: "Análise de Dados" },
     { icon: Lock, t: "Governança de TI" },
     { icon: Code2, t: "Desenvolvimento de Software" },
     { icon: TrendingUp, t: "Mercado Financeiro" },
