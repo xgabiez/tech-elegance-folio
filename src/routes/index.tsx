@@ -500,6 +500,19 @@ function Certifications() {
     }[];
   }[] = [
     {
+      name: "TreinaWeb",
+      icon: "💻",
+      description:
+        "Plataforma de ensino focada em desenvolvimento de software, oferecendo cursos práticos voltados às principais tecnologias do mercado.",
+      certs: [
+        {
+          title: "Semana React & Python",
+          date: "2022",
+          pdf: "/certificados/TREINAWEB_Semana_react_python.pdf",
+        },
+      ],
+    },
+    {
       name: "Digital Innovation One (DIO)",
       icon: "📚",
       certs: [
