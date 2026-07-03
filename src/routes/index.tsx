@@ -810,11 +810,6 @@ function Certifications() {
 
 /* ---------- Learning ---------- */
 function Learning() {
-  return null;
-}
-
-/* placeholder to keep original Learning below */
-function _LearningOld() {
   const topics = [
     { icon: Brain, t: "Inteligência Artificial" },
     { icon: BarChart3, t: "Análise de Dados" },
