@@ -665,6 +665,8 @@ function Certifications() {
         </div>
 
         {/* Accordion por instituição */}
+        <JourneyTimeline />
+
         <Accordion type="multiple" defaultValue={[institutions[0].name]} className="space-y-4">
           {institutions.map((inst) => (
             <AccordionItem
