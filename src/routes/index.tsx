@@ -592,7 +592,7 @@ function Certifications() {
   }[] = [
     {
       name: "TreinaWeb",
-      icon: "💻",
+      icon: "📚",
       description:
         "Plataforma de ensino focada em desenvolvimento de software, oferecendo cursos práticos voltados às principais tecnologias do mercado.",
       certs: [
@@ -673,7 +673,7 @@ function Certifications() {
     },
     {
       name: "SCTECH",
-      icon: "🎓",
+      icon: "📚",
       description:
         "Programa de capacitação em Tecnologia com participação em eventos de carreira, palestras técnicas, trilhas de aprendizagem e bootcamps, voltados ao desenvolvimento contínuo em Análise de Dados, Desenvolvimento de Software e Inteligência Artificial.",
       certs: [
