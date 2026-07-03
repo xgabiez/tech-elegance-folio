@@ -167,7 +167,7 @@ function Hero() {
             <span className="h-9 w-9 rounded-full border border-gold/40 grid place-items-center text-gold"><Cpu className="h-4 w-4" /></span>
             <div className="text-xs">
               <div className="font-semibold">Analista de TI</div>
-              <div className="text-muted-foreground">Florianópolis, BR</div>
+              <div className="text-gold font-medium">Florianópolis, BR</div>
             </div>
           </div>
         </div>
