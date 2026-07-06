@@ -167,7 +167,7 @@ function Hero() {
             <span className="h-9 w-9 rounded-full border border-gold/40 grid place-items-center text-gold"><Cpu className="h-4 w-4" /></span>
             <div className="text-xs">
               <div className="font-semibold">Analista de TI</div>
-              <div className="text-muted-foreground">Florianópolis, BR</div>
+              <div className="text-gold font-medium">Florianópolis, BR</div>
             </div>
           </div>
         </div>
@@ -482,6 +482,97 @@ function Education() {
 }
 
 /* ---------- Certifications ---------- */
+const journeyMilestones = [
+  {
+    year: "2022",
+    icon: "💻",
+    title: "TreinaWeb",
+    desc: "Primeiros estudos estruturados em desenvolvimento moderno utilizando React e Python, consolidando a base para projetos web.",
+  },
+  {
+    year: "2023",
+    icon: "🚀",
+    title: "Digital Innovation One (DIO)",
+    desc: "Bootcamps e projetos voltados para desenvolvimento web, Git, JavaScript, HTML, CSS e construção de aplicações.",
+  },
+  {
+    year: "2024",
+    icon: "🏛️",
+    title: "ENAP",
+    desc: "Capacitação em Governança de TIC, ampliando conhecimentos sobre gestão, governança e boas práticas na área de Tecnologia da Informação.",
+  },
+  {
+    year: "2025",
+    icon: "📊",
+    title: "Hashtag Treinamentos",
+    desc: "Aprofundamento em Python, Power BI, automação de processos, Inteligência Artificial e análise de dados aplicada.",
+  },
+  {
+    year: "2026",
+    icon: "🌟",
+    title: "SCTECH",
+    desc: "Eventos de carreira, palestras, trilhas e bootcamps em IA, Desenvolvimento de Software e Análise de Dados, com foco na evolução contínua.",
+  },
+];
+
+function JourneyTimeline() {
+  return (
+    <div className="mb-14">
+      <div className="mb-8">
+        <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-gold font-semibold">
+          <span className="h-px w-8 bg-gold" /> Timeline
+        </div>
+        <h3 className="mt-3 font-display text-2xl md:text-3xl font-bold tracking-tight">
+          Minha Jornada de Aprendizado
+        </h3>
+        <p className="mt-3 text-sm md:text-base text-muted-foreground max-w-3xl">
+          Acredito que aprender continuamente é uma das competências mais importantes na área de Tecnologia. Esta linha do tempo representa minha evolução técnica por meio de cursos, bootcamps, certificações, eventos e projetos práticos.
+        </p>
+      </div>
+
+      {/* Mobile: vertical */}
+      <div className="md:hidden relative pl-8">
+        <div className="absolute left-3 top-2 bottom-2 w-px bg-gradient-to-b from-rose via-gold to-transparent" />
+        <div className="space-y-5">
+          {journeyMilestones.map((m) => (
+            <div key={m.year} className="relative">
+              <span className="absolute -left-[1.4rem] top-4 h-3 w-3 rounded-full gradient-rose-gold ring-4 ring-background" />
+              <div className="glass rounded-2xl p-5 hover:border-rose/40 hover:-translate-y-0.5 transition">
+                <div className="flex items-center gap-3">
+                  <span className="text-2xl">{m.icon}</span>
+                  <div>
+                    <div className="text-xs font-semibold text-gold tracking-wider">{m.year}</div>
+                    <div className="font-display font-bold text-sm">{m.title}</div>
+                  </div>
+                </div>
+                <p className="mt-3 text-xs text-muted-foreground leading-relaxed">{m.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Desktop: horizontal */}
+      <div className="hidden md:block relative">
+        <div className="absolute left-0 right-0 top-8 h-px bg-gradient-to-r from-rose via-gold to-transparent" />
+        <div className="grid grid-cols-5 gap-4 relative">
+          {journeyMilestones.map((m) => (
+            <div key={m.year} className="flex flex-col items-center text-center group">
+              <span className="relative h-4 w-4 rounded-full gradient-rose-gold ring-4 ring-background mt-6 group-hover:scale-125 transition-transform" />
+              <div className="mt-4 text-xs font-bold tracking-wider text-gold">{m.year}</div>
+              <div className="mt-3 w-full glass rounded-2xl p-4 hover:border-rose/40 hover:-translate-y-1 transition h-full">
+                <div className="text-2xl">{m.icon}</div>
+                <div className="mt-2 font-display font-bold text-sm leading-tight">{m.title}</div>
+                <p className="mt-2 text-[11px] text-muted-foreground leading-relaxed">{m.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function Certifications() {
   const gh = "https://github.com/xgabiez";
   const institutions: {
@@ -499,6 +590,19 @@ function Certifications() {
       group?: string;
     }[];
   }[] = [
+    {
+      name: "TreinaWeb",
+      icon: "📚",
+      description:
+        "Plataforma de ensino focada em desenvolvimento de software, oferecendo cursos práticos voltados às principais tecnologias do mercado.",
+      certs: [
+        {
+          title: "Semana React & Python",
+          date: "2022",
+          pdf: "/certificados/TREINAWEB_Semana_react_python.pdf",
+        },
+      ],
+    },
     {
       name: "Digital Innovation One (DIO)",
       icon: "📚",
@@ -569,7 +673,7 @@ function Certifications() {
     },
     {
       name: "SCTECH",
-      icon: "🎓",
+      icon: "📚",
       description:
         "Programa de capacitação em Tecnologia com participação em eventos de carreira, palestras técnicas, trilhas de aprendizagem e bootcamps, voltados ao desenvolvimento contínuo em Análise de Dados, Desenvolvimento de Software e Inteligência Artificial.",
       certs: [
@@ -652,6 +756,8 @@ function Certifications() {
         </div>
 
         {/* Accordion por instituição */}
+        <JourneyTimeline />
+
         <Accordion type="multiple" defaultValue={[institutions[0].name]} className="space-y-4">
           {institutions.map((inst) => (
             <AccordionItem

@@ -7,6 +7,11 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
+  vite: {
+    // Base path opcional para deploy no GitHub Pages.
+    // No Lovable/Cloudflare Workers, VITE_BASE não é definido, então base = "/".
+    base: process.env.VITE_BASE ?? "/",
+  },
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this

@@ -1,0 +1,85 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      # Base path do repositório no GitHub Pages
+      VITE_BASE: /tech-elegance-folio/
+      # Prerender estático via Nitro (gera HTML puro para GitHub Pages)
+      NITRO_PRESET: static
+      GITHUB_PAGES: "true"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Build (static)
+        run: bun run build
+
+      - name: Resolve output directory
+        id: outdir
+        run: |
+          if [ -d ".output/public" ]; then
+            echo "dir=.output/public" >> "$GITHUB_OUTPUT"
+          elif [ -d "dist" ]; then
+            echo "dir=dist" >> "$GITHUB_OUTPUT"
+          else
+            echo "No build output directory found" >&2
+            ls -la
+            exit 1
+          fi
+
+      - name: SPA fallback (404.html)
+        run: |
+          OUT="${{ steps.outdir.outputs.dir }}"
+          if [ -f "$OUT/index.html" ] && [ ! -f "$OUT/404.html" ]; then
+            cp "$OUT/index.html" "$OUT/404.html"
+          fi
+
+      - name: Disable Jekyll (preserva _underscore paths)
+        run: touch "${{ steps.outdir.outputs.dir }}/.nojekyll"
+
+      - name: Copy public assets (certificados, imagens, PDFs)
+        run: |
+          OUT="${{ steps.outdir.outputs.dir }}"
+          if [ -d "public" ]; then
+            cp -rn public/. "$OUT"/ || true
+          fi
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ steps.outdir.outputs.dir }}
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
