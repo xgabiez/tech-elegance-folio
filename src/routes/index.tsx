@@ -904,6 +904,16 @@ function Certifications() {
                           </div>
                         </div>
                       ))}
+                      {inst.emptyGroups?.map((eg) => (
+                        <div key={eg.name}>
+                          <div className="text-xs font-display font-semibold uppercase tracking-wider text-rose mb-3">
+                            {eg.name}
+                          </div>
+                          <p className="text-xs text-muted-foreground italic leading-relaxed">
+                            {eg.note}
+                          </p>
+                        </div>
+                      ))}
                     </div>
                   );
                 })()}
