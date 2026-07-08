@@ -714,6 +714,22 @@ function Certifications() {
           group: "🚀 Trilhas Rápidas",
           pdf: "/certificados/SCTECH_Trilha_Rapida_Inteligencia_Artificial.pdf.pdf",
         },
+        {
+          title: "Introdução ao Data Science",
+          category: "Primeiros Passos",
+          group: "🌱 Primeiros Passos",
+          pdf: "/certificados/SCTECH_introducao_ao_dataScience.pdf",
+        },
+      ],
+      emptyGroups: [
+        {
+          name: "🔷 Profissionalizar",
+          note: "Em breve novos certificados serão adicionados conforme avanço na jornada SCTECH.",
+        },
+        {
+          name: "⭐ Aperfeiçoar",
+          note: "Em breve novos certificados serão adicionados conforme avanço na jornada SCTECH.",
+        },
       ],
     },
   ];
