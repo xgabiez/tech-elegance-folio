@@ -589,6 +589,7 @@ function Certifications() {
       category?: string;
       group?: string;
     }[];
+    emptyGroups?: { name: string; note: string }[];
   }[] = [
     {
       name: "TreinaWeb",
