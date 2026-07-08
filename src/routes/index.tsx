@@ -9,8 +9,7 @@ import {
 import {
   Accordion, AccordionContent, AccordionItem, AccordionTrigger,
 } from "@/components/ui/accordion";
-import portraitAsset from "@/assets/gabrielly.jpg.asset.json";
-const portrait = portraitAsset.url;
+const portrait = `${import.meta.env.BASE_URL}imagens/Perfil_gabrielly.jpg`;
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -30,6 +29,7 @@ const nav = [
   { href: "#projetos", label: "Projetos" },
   { href: "#competencias", label: "Competências" },
   { href: "#formacao", label: "Formação" },
+  { href: "#aprendizado", label: "Aprendizado" },
   { href: "#contato", label: "Contato" },
 ];
 
@@ -910,7 +910,7 @@ function Learning() {
     { icon: BarChart3, t: "Investimentos" },
   ];
   return (
-    <section className="py-24">
+    <section id="aprendizado" className="py-24">
       <div className="mx-auto max-w-6xl px-4">
         <SectionTitle kicker="Estudo Atual" title="Evolução contínua" sub="Áreas em que invisto meu aprendizado neste momento." />
         <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
