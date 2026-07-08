@@ -29,7 +29,7 @@ const nav = [
   { href: "#projetos", label: "Projetos" },
   { href: "#competencias", label: "Competências" },
   { href: "#formacao", label: "Formação" },
-  { href: "#aprendizado", label: "Aprendizado" },
+  { href: "#certificacoes", label: "Aprendizado" },
   { href: "#contato", label: "Contato" },
 ];
 
@@ -589,6 +589,7 @@ function Certifications() {
       category?: string;
       group?: string;
     }[];
+    emptyGroups?: { name: string; note: string }[];
   }[] = [
     {
       name: "TreinaWeb",
@@ -712,6 +713,22 @@ function Certifications() {
           category: "Trilha Rápida",
           group: "🚀 Trilhas Rápidas",
           pdf: "/certificados/SCTECH_Trilha_Rapida_Inteligencia_Artificial.pdf.pdf",
+        },
+        {
+          title: "Introdução ao Data Science",
+          category: "Primeiros Passos",
+          group: "🌱 Primeiros Passos",
+          pdf: "/certificados/SCTECH_introducao_ao_dataScience.pdf",
+        },
+      ],
+      emptyGroups: [
+        {
+          name: "🔷 Profissionalizar",
+          note: "Em breve novos certificados serão adicionados conforme avanço na jornada SCTECH.",
+        },
+        {
+          name: "⭐ Aperfeiçoar",
+          note: "Em breve novos certificados serão adicionados conforme avanço na jornada SCTECH.",
         },
       ],
     },
@@ -885,6 +902,16 @@ function Certifications() {
                           <div className="grid md:grid-cols-2 gap-4">
                             {inst.certs.filter((c) => c.group === g).map(renderCard)}
                           </div>
+                        </div>
+                      ))}
+                      {inst.emptyGroups?.map((eg) => (
+                        <div key={eg.name}>
+                          <div className="text-xs font-display font-semibold uppercase tracking-wider text-rose mb-3">
+                            {eg.name}
+                          </div>
+                          <p className="text-xs text-muted-foreground italic leading-relaxed">
+                            {eg.note}
+                          </p>
                         </div>
                       ))}
                     </div>
