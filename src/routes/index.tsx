@@ -29,7 +29,7 @@ const nav = [
   { href: "#projetos", label: "Projetos" },
   { href: "#competencias", label: "Competências" },
   { href: "#formacao", label: "Formação" },
-  { href: "#aprendizado", label: "Aprendizado" },
+  { href: "#certificacoes", label: "Aprendizado" },
   { href: "#contato", label: "Contato" },
 ];
 
