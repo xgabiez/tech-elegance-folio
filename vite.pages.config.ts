@@ -9,6 +9,8 @@ import { tanstackRouter } from "@tanstack/router-plugin/vite";
 // NÃO afeta o build padrão do Lovable, que continua usando vite.config.ts (SSR).
 export default defineConfig({
   base: process.env.VITE_BASE ?? "/",
+  root: path.resolve(process.cwd(), "pages"),
+  publicDir: path.resolve(process.cwd(), "public"),
   plugins: [
     tsConfigPaths(),
     tanstackRouter({ target: "react", autoCodeSplitting: true }),
@@ -20,7 +22,7 @@ export default defineConfig({
     dedupe: ["react", "react-dom", "@tanstack/react-router"],
   },
   build: {
-    outDir: "dist",
+    outDir: path.resolve(process.cwd(), "dist"),
     emptyOutDir: true,
   },
 });
