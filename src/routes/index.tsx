@@ -588,6 +588,7 @@ function Certifications() {
       badge?: string;
       category?: string;
       group?: string;
+      featured?: boolean;
     }[];
     emptyGroups?: { name: string; note: string }[];
   }[] = [
@@ -600,7 +601,7 @@ function Certifications() {
         {
           title: "Semana React & Python",
           date: "2022",
-          pdf: "/certificados/TREINAWEB_Semana_react_python.pdf",
+          pdf: "/certificados/treinaweb/TREINAWEB_Semana_react_python.pdf",
         },
       ],
     },
@@ -612,7 +613,7 @@ function Certifications() {
           title: "Bootcamp Santander 2025 — Ciência de Dados com Python",
           hours: "63h",
           date: "2025",
-          pdf: "/certificados/Bootcamp_Santander2025_CienciadeDadosComPython_63h.pdf",
+          pdf: "/certificados/dio/Bootcamp_Santander2025_CienciadeDadosComPython_63h.pdf",
           badge: "🚀 Projetos desenvolvidos",
           projects: [
             { name: "Ciencia_de_Dados_com_Python_IMERSAO_SANTANDER", url: `${gh}/Ciencia_de_Dados_com_Python_IMERSAO_SANTANDER` },
@@ -625,7 +626,7 @@ function Certifications() {
           title: "Bootcamp Klabin — Excel e Power BI Dashboards",
           hours: "90h",
           date: "2024",
-          pdf: "/certificados/Bootcamp_Klabin_ExcelEPowerBi_Dashboards_90h.pdf",
+          pdf: "/certificados/dio/Bootcamp_Klabin_ExcelEPowerBi_Dashboards_90h.pdf",
           badge: "💻 Aplicação prática",
           projects: [
             { name: "Power_BI_Dashboards", url: `${gh}/Power_BI_Dashboards` },
@@ -637,7 +638,7 @@ function Certifications() {
         {
           title: "Formação Power BI Analyst",
           hours: "60h",
-          pdf: "/certificados/Formação_PowerBi_Analyst_60h.pdf",
+          pdf: "/certificados/dio/Formação_PowerBi_Analyst_60h.pdf",
           badge: "💻 Aplicação prática",
           projects: [
             { name: "Power_BI_Dashboards", url: `${gh}/Power_BI_Dashboards` },
@@ -652,7 +653,7 @@ function Certifications() {
       certs: [
         {
           title: "Governança de TIC no Setor Público",
-          pdf: "/certificados/Certificado_Governanca_TIC.pdf",
+          pdf: "/certificados/enap/Certificado_Governanca_TIC.pdf",
         },
       ],
     },
@@ -663,7 +664,7 @@ function Certifications() {
         {
           title: "Jornada Python",
           hours: "8h",
-          pdf: "/certificados/Hashtag_JornadaPython_8h.pdf",
+          pdf: "/certificados/hashtag/Hashtag_JornadaPython_8h.pdf",
           badge: "🚀 Projetos desenvolvidos",
           projects: [
             { name: "Automacao-de-processos-comPython", url: `${gh}/Automacao-de-processos-comPython` },
@@ -673,7 +674,45 @@ function Certifications() {
       ],
     },
     {
-      name: "SCTECH",
+      name: "Alura",
+      icon: "📚",
+      description:
+        "Formação contínua em desenvolvimento de software, Inteligência Artificial, programação, engenharia de prompts e demais tecnologias voltadas ao mercado.",
+      certs: [
+        {
+          title: "Formação Alura",
+          group: "🎓 Formação Completa",
+          badge: "🏆 Certificado da Formação",
+          featured: true,
+          pdf: "/certificados/alura/Certificado_Alura_completo.pdf",
+        },
+        ...[
+          { title: "Engenharia de Prompt: criando prompts eficazes para IA Generativa", file: "Gabrielly De Abreu Ferreira - Curso Engenharia de Prompt_ criando prompts eficazes para IA Generativa - Alura.pdf" },
+          { title: "Git e GitHub: repositório, commit e versões", file: "Gabrielly De Abreu Ferreira - Curso Git e GitHub_ repositório, commit e versões - Alura.pdf" },
+          { title: "HTML e CSS: ambientes de desenvolvimento, estrutura de arquivos e tags", file: "Gabrielly De Abreu Ferreira - Curso HTML e CSS_ ambientes de desenvolvimento, estrutura de arquivos e tags - Alura.pdf" },
+          { title: "HTML e CSS: Classes, posicionamento e Flexbox", file: "Gabrielly De Abreu Ferreira - Curso HTML e CSS_ Classes, posicionamento e Flexbox - Alura.pdf" },
+          { title: "HTML e CSS: cabeçalho, footer e variáveis CSS", file: "Gabrielly De Abreu Ferreira - Curso HTML e CSS_ cabeçalho, footer e variáveis CSS - Alura.pdf" },
+          { title: "HTML e CSS: trabalhando com responsividade e publicação de projetos", file: "Gabrielly De Abreu Ferreira - Curso HTML e CSS_ trabalhando com responsividade e publicação de projetos - Alura.pdf" },
+          { title: "IA: explorando o potencial da inteligência artificial generativa", file: "Gabrielly De Abreu Ferreira - Curso IA_ explorando o potencial da inteligência artificial generativa - Alura.pdf" },
+          { title: "Java JRE e JDK: compile e execute o seu programa", file: "Gabrielly De Abreu Ferreira - Curso Java JRE e JDK_ compile e execute o seu programa - Alura.pdf" },
+          { title: "Java OO: entendendo a Orientação a Objetos", file: "Gabrielly De Abreu Ferreira - Curso Java OO_ entendendo a Orientação a Objetos - Alura.pdf" },
+          { title: "Java Polimorfismo: entenda herança e interfaces", file: "Gabrielly De Abreu Ferreira - Curso Java Polimorfismo_ entenda herança e interfaces - Alura.pdf" },
+          { title: "JavaScript: Arrays", file: "Gabrielly De Abreu Ferreira - Curso JavaScript_ Arrays - Alura.pdf" },
+          { title: "JavaScript: manipulando o DOM", file: "Gabrielly De Abreu Ferreira - Curso JavaScript_ manipulando o DOM - Alura.pdf" },
+          { title: "JavaScript: objetos", file: "Gabrielly De Abreu Ferreira - Curso JavaScript_ objetos - Alura.pdf" },
+          { title: "JavaScript: tipos, variáveis e funções", file: "Gabrielly De Abreu Ferreira - Curso JavaScript_ tipos, variáveis e funções - Alura.pdf" },
+          { title: "JavaScript e HTML: desenvolva um jogo e pratique lógica de programação", file: "Gabrielly De Abreu Ferreira - Curso JavaScript e HTML_ desenvolva um jogo e pratique lógica de programação - Alura.pdf" },
+          { title: "JavaScript na Web: armazenando dados no navegador", file: "Gabrielly De Abreu Ferreira - Curso JavaScript na Web_ armazenando dados no navegador - Alura.pdf" },
+          { title: "Transformação Digital: tecnologias", file: "Gabrielly De Abreu Ferreira - Curso Transformação Digital_ tecnologias - Alura.pdf" },
+        ].map((c) => ({
+          title: c.title,
+          group: "📚 Cursos da Formação",
+          pdf: `/certificados/alura/${c.file}`,
+        })),
+      ],
+    },
+    {
+      name: "SCTEC",
       icon: "📚",
       description:
         "Programa de capacitação em Tecnologia com participação em eventos de carreira, palestras técnicas, trilhas de aprendizagem e bootcamps, voltados ao desenvolvimento contínuo em Análise de Dados, Desenvolvimento de Software e Inteligência Artificial.",
@@ -682,53 +721,53 @@ function Certifications() {
           title: "Análise de Dados",
           category: "Palestra",
           group: "📢 Palestras",
-          pdf: "/certificados/SCTECH_Palestras_Analise_de_Dados.pdf.pdf",
+          pdf: "/certificados/sctec/SCTEC_Palestras_Analise_de_Dados.pdf.pdf",
         },
         {
           title: "Desenvolvimento de Software",
           category: "Palestra",
           group: "📢 Palestras",
-          pdf: "/certificados/SCTECH_Palestras_Desenvolvimento_de_Software.pdf.pdf",
+          pdf: "/certificados/sctec/SCTEC_Palestras_Desenvolvimento_de_Software.pdf.pdf",
         },
         {
           title: "Inteligência Artificial",
           category: "Palestra",
           group: "📢 Palestras",
-          pdf: "/certificados/SCTECH_Palestras_Inteligencia_Artificial.pdf.pdf",
+          pdf: "/certificados/sctec/SCTEC_Palestras_Inteligencia_Artificial.pdf.pdf",
         },
         {
           title: "Análise de Dados",
           category: "Trilha Rápida",
           group: "🚀 Trilhas Rápidas",
-          pdf: "/certificados/SCTECH_Trilha_Rapida_Analise_de_Dados.pdf.pdf",
+          pdf: "/certificados/sctec/SCTEC_Trilha_Rapida_Analise_de_Dados.pdf.pdf",
         },
         {
           title: "Desenvolvimento de Software",
           category: "Trilha Rápida",
           group: "🚀 Trilhas Rápidas",
-          pdf: "/certificados/SCTECH_Trilha_Rapida_Desenvolvimento_de_Software.pdf.pdf",
+          pdf: "/certificados/sctec/SCTEC_Trilha_Rapida_Desenvolvimento_de_Software.pdf.pdf",
         },
         {
           title: "Inteligência Artificial",
           category: "Trilha Rápida",
           group: "🚀 Trilhas Rápidas",
-          pdf: "/certificados/SCTECH_Trilha_Rapida_Inteligencia_Artificial.pdf.pdf",
+          pdf: "/certificados/sctec/SCTEC_Trilha_Rapida_Inteligencia_Artificial.pdf.pdf",
         },
         {
           title: "Introdução ao Data Science",
           category: "Primeiros Passos",
           group: "🌱 Primeiros Passos",
-          pdf: "/certificados/SCTECH_introducao_ao_dataScience.pdf",
+          pdf: "/certificados/sctec/SCTEC_Introducao_ao_DataScience.pdf",
         },
       ],
       emptyGroups: [
         {
           name: "🔷 Profissionalizar",
-          note: "Em breve novos certificados serão adicionados conforme avanço na jornada SCTECH.",
+          note: "Em breve novos certificados serão adicionados conforme avanço na jornada SCTEC.",
         },
         {
           name: "⭐ Aperfeiçoar",
-          note: "Em breve novos certificados serão adicionados conforme avanço na jornada SCTECH.",
+          note: "Em breve novos certificados serão adicionados conforme avanço na jornada SCTEC.",
         },
       ],
     },
