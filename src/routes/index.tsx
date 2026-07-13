@@ -510,7 +510,7 @@ const journeyMilestones = [
   {
     year: "2026",
     icon: "🌟",
-    title: "SCTECH",
+    title: "SCTEC",
     desc: "Eventos de carreira, palestras, trilhas e bootcamps em IA, Desenvolvimento de Software e Análise de Dados, com foco na evolução contínua.",
   },
 ];
