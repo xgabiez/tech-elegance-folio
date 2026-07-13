@@ -843,7 +843,7 @@ function Certifications() {
                   const renderCard = (c: (typeof inst.certs)[number]) => (
                     <div
                       key={c.title}
-                      className="group relative rounded-2xl p-5 bg-surface/40 border border-white/5 hover:border-rose/40 hover:-translate-y-0.5 transition"
+                      className={`group relative rounded-2xl p-5 bg-surface/40 border hover:-translate-y-0.5 transition ${c.featured ? "border-gold/60 bg-gold/5 hover:border-gold" : "border-white/5 hover:border-rose/40"}`}
                     >
                       <div className="flex items-start gap-3">
                         <span className="h-10 w-10 grid place-items-center rounded-lg border border-gold/30 text-gold shrink-0">
@@ -879,7 +879,7 @@ function Certifications() {
 
                       <div className="mt-4 flex flex-wrap gap-2">
                         <a
-                          href={c.pdf}
+                          href={encodeURI(c.pdf)}
                           target="_blank"
                           rel="noreferrer"
                           className="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg gradient-rose-gold text-background font-semibold hover:opacity-90 transition"
