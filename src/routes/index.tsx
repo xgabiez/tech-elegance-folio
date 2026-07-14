@@ -626,7 +626,7 @@ function Certifications() {
           title: "Bootcamp Klabin — Excel e Power BI Dashboards",
           hours: "90h",
           date: "2024",
-          pdf: "/certificados/dio/Bootcamp_Klabin_ExcelEPowerBi_Dashboards_90h.pdf",
+          pdf: "/certificados/DIO/Bootcamp_Klabin_ExcelEPowerBi_Dashboards_90h.pdf",
           badge: "💻 Aplicação prática",
           projects: [
             { name: "Power_BI_Dashboards", url: `${gh}/Power_BI_Dashboards` },
@@ -879,7 +879,7 @@ function Certifications() {
 
                       <div className="mt-4 flex flex-wrap gap-2">
                         <a
-                          href={encodeURI(c.pdf)}
+                          href={encodeURI(`${import.meta.env.BASE_URL}${c.pdf.replace(/^\//, "")}`)}
                           target="_blank"
                           rel="noreferrer"
                           className="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg gradient-rose-gold text-background font-semibold hover:opacity-90 transition"
