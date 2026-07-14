@@ -601,7 +601,7 @@ function Certifications() {
         {
           title: "Semana React & Python",
           date: "2022",
-          pdf: "/certificados/treinaweb/TREINAWEB_Semana_react_python.pdf",
+          pdf: "/certificados/treinaWEB/TREINAWEB_Semana_react_python.pdf",
         },
       ],
     },
