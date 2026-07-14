@@ -489,6 +489,13 @@ const journeyMilestones = [
     title: "TreinaWeb",
     desc: "Primeiros estudos estruturados em desenvolvimento moderno utilizando React e Python, consolidando a base para projetos web.",
   },
+  
+  {
+  year: "2023",
+  icon: "📚",
+  title: "Alura",
+  desc: "Formação contínua em tecnologia com cursos voltados para programação, Inteligência Artificial, Engenharia de Prompt e desenvolvimento de novas competências digitais.",
+  },
   {
     year: "2023",
     icon: "🚀",
