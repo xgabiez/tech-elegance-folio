@@ -613,7 +613,7 @@ function Certifications() {
           title: "Bootcamp Santander 2025 — Ciência de Dados com Python",
           hours: "63h",
           date: "2025",
-          pdf: "/certificados/dio/Bootcamp_Santander2025_CienciadeDadosComPython_63h.pdf",
+          pdf: "/certificados/DIO/Bootcamp_Santander2025_CienciadeDadosComPython_63h.pdf",
           badge: "🚀 Projetos desenvolvidos",
           projects: [
             { name: "Ciencia_de_Dados_com_Python_IMERSAO_SANTANDER", url: `${gh}/Ciencia_de_Dados_com_Python_IMERSAO_SANTANDER` },
@@ -638,7 +638,7 @@ function Certifications() {
         {
           title: "Formação Power BI Analyst",
           hours: "60h",
-          pdf: "/certificados/dio/Formação_PowerBi_Analyst_60h.pdf",
+          pdf: "/certificados/DIO/Formação_PowerBi_Analyst_60h.pdf",
           badge: "💻 Aplicação prática",
           projects: [
             { name: "Power_BI_Dashboards", url: `${gh}/Power_BI_Dashboards` },
@@ -653,7 +653,7 @@ function Certifications() {
       certs: [
         {
           title: "Governança de TIC no Setor Público",
-          pdf: "/certificados/enap/Certificado_Governanca_TIC.pdf",
+          pdf: "/certificados/Enap/Certificado_Governanca_TIC.pdf",
         },
       ],
     },
@@ -664,7 +664,7 @@ function Certifications() {
         {
           title: "Jornada Python",
           hours: "8h",
-          pdf: "/certificados/hashtag/Hashtag_JornadaPython_8h.pdf",
+          pdf: "/certificados/Hashtag/Hashtag_JornadaPython_8h.pdf",
           badge: "🚀 Projetos desenvolvidos",
           projects: [
             { name: "Automacao-de-processos-comPython", url: `${gh}/Automacao-de-processos-comPython` },
@@ -684,7 +684,7 @@ function Certifications() {
           group: "🎓 Formação Completa",
           badge: "🏆 Certificado da Formação",
           featured: true,
-          pdf: "/certificados/alura/Certificado_Alura_completo.pdf",
+          pdf: "/certificados/Alura/Certificado_Alura_completo.pdf",
         },
         ...[
           { title: "Engenharia de Prompt: criando prompts eficazes para IA Generativa", file: "Gabrielly De Abreu Ferreira - Curso Engenharia de Prompt_ criando prompts eficazes para IA Generativa - Alura.pdf" },
@@ -707,7 +707,7 @@ function Certifications() {
         ].map((c) => ({
           title: c.title,
           group: "📚 Cursos da Formação",
-          pdf: `/certificados/alura/${c.file}`,
+          pdf: `/certificados/Alura/${c.file}`,
         })),
       ],
     },
@@ -721,43 +721,43 @@ function Certifications() {
           title: "Análise de Dados",
           category: "Palestra",
           group: "📢 Palestras",
-          pdf: "/certificados/sctec/SCTEC_Palestras_Analise_de_Dados.pdf.pdf",
+          pdf: "/certificados/SCTEC/SCTEC_Palestras_Analise_de_Dados.pdf.pdf",
         },
         {
           title: "Desenvolvimento de Software",
           category: "Palestra",
           group: "📢 Palestras",
-          pdf: "/certificados/sctec/SCTEC_Palestras_Desenvolvimento_de_Software.pdf.pdf",
+          pdf: "/certificados/SCTEC/SCTEC_Palestras_Desenvolvimento_de_Software.pdf.pdf",
         },
         {
           title: "Inteligência Artificial",
           category: "Palestra",
           group: "📢 Palestras",
-          pdf: "/certificados/sctec/SCTEC_Palestras_Inteligencia_Artificial.pdf.pdf",
+          pdf: "/certificados/SCTEC/SCTEC_Palestras_Inteligencia_Artificial.pdf.pdf",
         },
         {
           title: "Análise de Dados",
           category: "Trilha Rápida",
           group: "🚀 Trilhas Rápidas",
-          pdf: "/certificados/sctec/SCTEC_Trilha_Rapida_Analise_de_Dados.pdf.pdf",
+          pdf: "/certificados/SCTEC/SCTEC_Trilha_Rapida_Analise_de_Dados.pdf.pdf",
         },
         {
           title: "Desenvolvimento de Software",
           category: "Trilha Rápida",
           group: "🚀 Trilhas Rápidas",
-          pdf: "/certificados/sctec/SCTEC_Trilha_Rapida_Desenvolvimento_de_Software.pdf.pdf",
+          pdf: "/certificados/SCTEC/SCTEC_Trilha_Rapida_Desenvolvimento_de_Software.pdf.pdf",
         },
         {
           title: "Inteligência Artificial",
           category: "Trilha Rápida",
           group: "🚀 Trilhas Rápidas",
-          pdf: "/certificados/sctec/SCTEC_Trilha_Rapida_Inteligencia_Artificial.pdf.pdf",
+          pdf: "/certificados/SCTEC/SCTEC_Trilha_Rapida_Inteligencia_Artificial.pdf.pdf",
         },
         {
           title: "Introdução ao Data Science",
           category: "Primeiros Passos",
           group: "🌱 Primeiros Passos",
-          pdf: "/certificados/sctec/SCTEC_Introducao_ao_DataScience.pdf",
+          pdf: "/certificados/SCTEC/SCTEC_Introducao_ao_DataScience.pdf",
         },
       ],
       emptyGroups: [
