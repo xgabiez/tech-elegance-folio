@@ -63,7 +63,7 @@ jobs:
         run: |
           OUT="${{ steps.outdir.outputs.dir }}"
           if [ -d "public" ]; then
-            cp -rn public/. "$OUT"/ || true
+            cp -r public/. "$OUT"/
           fi
 
       - name: Upload Pages artifact
