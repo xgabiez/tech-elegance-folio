@@ -132,7 +132,7 @@ function Hero() {
             <a href="https://linkedin.com/in/gabrielly-ferreira-ti" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full glass-strong px-6 py-3 font-semibold hover:bg-white/5 transition">
               <Linkedin className="h-4 w-4" /> LinkedIn
             </a>
-            <a href="#" className="inline-flex items-center gap-2 rounded-full border border-rose/40 px-6 py-3 font-semibold text-rose hover:bg-rose/5 transition">
+            <a href="/public/curriculo/Curriculo_Gabrielly.pdf" className="inline-flex items-center gap-2 rounded-full border border-rose/40 px-6 py-3 font-semibold text-rose hover:bg-rose/5 transition">
               <Download className="h-4 w-4" /> Currículo
             </a>
           </div>
