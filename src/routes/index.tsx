@@ -14,7 +14,7 @@ const portrait = `${import.meta.env.BASE_URL}imagens/Perfil_gabrielly.jpg`;
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Gabrielly Ferreira — Analista de TI & Tecnologia Educacional" },
+      { title: "Gabrielly Ferreira — Analista de TI & Desenvolvedora Web" },
       { name: "description", content: "Portfólio profissional de Gabrielly Ferreira: Analista de TI, especialista em gestão de tecnologia, plataformas educacionais e inovação." },
       { property: "og:title", content: "Gabrielly Ferreira — Analista de TI" },
       { property: "og:description", content: "Transformando tecnologia em soluções que impulsionam educação, inovação e resultados." },
@@ -26,6 +26,7 @@ export const Route = createFileRoute("/")({
 const nav = [
   { href: "#sobre", label: "Sobre" },
   { href: "#experiencia", label: "Experiência" },
+  { href: "#landing-pages", label: "Landing Pages" }
   { href: "#projetos", label: "Projetos" },
   { href: "#competencias", label: "Competências" },
   { href: "#formacao", label: "Formação" },
@@ -42,6 +43,7 @@ function Index() {
         <Hero />
         <About />
         <Experience />
+        <LandingPages />
         <Projects />
         <Skills />
         <Education />
@@ -342,8 +344,107 @@ function Experience() {
     </section>
   );
 }
+/* ---------- Landing Pages ---------- */
+ {/* Cabeçalho da Seção */}
+    <div className="text-center max-w-2xl mx-auto mb-16">
+      <span className="text-xs uppercase tracking-[0.3em] font-semibold text-[#D4AF37] block mb-2">
+        Serviços Profissionais
+      </span>
+      <h2 className="text-3xl md:text-4xl font-serif text-white font-normal mb-4">
+        Landing Pages & Sites de Alta Performance
+      </h2>
+      <p className="text-slate-400 text-sm md:text-base font-light">
+        Não crio apenas páginas bonitas. Desenvolvo sites rápidos, seguros e otimizados para mecanismos de busca que transformam visitantes em clientes.
+      </p>
+    </div>
+
+    {/* Diferenciais / Vantagens */}
+    <div className="grid md:grid-cols-3 gap-6 mb-16">
+      <div className="bg-[#121826]/60 border border-slate-800 p-6 rounded-lg backdrop-blur-sm">
+        <div className="text-2xl mb-3">⚡</div>
+        <h3 className="text-white text-sm uppercase tracking-wider font-semibold mb-2">Velocidade Extrema</h3>
+        <p className="text-slate-400 text-xs font-light leading-relaxed">
+          Desenvolvimento em código limpo (React/Vite) com carregamento instantâneo para não perder nenhum cliente.
+        </p>
+      </div>
+
+      <div className="bg-[#121826]/60 border border-slate-800 p-6 rounded-lg backdrop-blur-sm">
+        <div className="text-2xl mb-3">🎯</div>
+        <h3 className="text-white text-sm uppercase tracking-wider font-semibold mb-2">Foco em Conversão</h3>
+        <p className="text-slate-400 text-xs font-light leading-relaxed">
+          Estruturas estratégicas com chamadas para ação diretas para o seu WhatsApp e formulários eficientes.
+        </p>
+      </div>
+
+      <div className="bg-[#121826]/60 border border-slate-800 p-6 rounded-lg backdrop-blur-sm">
+        <div className="text-2xl mb-3">🔒</div>
+        <h3 className="text-white text-sm uppercase tracking-wider font-semibold mb-2">Autoridade em TI</h3>
+        <p className="text-slate-400 text-xs font-light leading-relaxed">
+          Segurança avançada, certificado SSL, otimização para SEO e suporte técnico completo de ponta a ponta.
+        </p>
+      </div>
+    </div>
+
+    {/* Vitrine de Cases de Clientes */}
+    <div className="mb-12">
+      <h3 className="text-white text-lg font-serif mb-6 border-l-2 border-[#D4AF37] pl-3">
+        Cases em Destaque
+      </h3>
+
+      <div className="grid md:grid-cols-2 gap-8">
+        {cases.map((item, index) => (
+          <div key={index} className="bg-[#0D1322] border border-slate-800 hover:border-[#D4AF37]/50 transition-all p-6 rounded-lg flex flex-col justify-between">
+            <div>
+              <span className="text-[10px] uppercase tracking-widest text-[#D4AF37] font-semibold block mb-1">
+                {item.categoria}
+              </span>
+              <h4 className="text-xl font-serif text-white mb-2">{item.nome}</h4>
+              <p className="text-slate-400 text-xs font-light mb-6 leading-relaxed">
+                {item.descricao}
+              </p>
+
+              <div className="flex flex-wrap gap-2 mb-6">
+                {item.tags.map((tag, tagIndex) => (
+                  <span key={tagIndex} className="text-[10px] bg-slate-900 border border-slate-800 text-slate-300 px-2.5 py-1 rounded">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <a 
+              href="#contato" 
+              className="inline-flex items-center justify-center gap-2 w-full bg-slate-900 hover:bg-[#D4AF37] hover:text-[#0A0F1D] text-slate-200 border border-slate-800 text-xs font-semibold uppercase tracking-wider py-3 transition-all rounded"
+            >
+              <span>Solicitar Projeto Semelhante</span>
+              <span>→</span>
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {/* Banner de Chamada para Ação */}
+    <div className="bg-gradient-to-r from-[#121826] to-[#0A0F1D] border border-[#D4AF37]/30 p-8 rounded-lg text-center relative overflow-hidden">
+      <h3 className="text-xl md:text-2xl font-serif text-white mb-3">
+        Quer transformar a presença digital do seu negócio?
+      </h3>
+      <p className="text-slate-300 text-xs md:text-sm font-light max-w-xl mx-auto mb-6">
+        Agende uma conversa direta e vamos estruturar o site ideal para alavancar suas vendas.
+      </p>
+      <a 
+        href="#contato" 
+        className="inline-block bg-[#D4AF37] hover:bg-[#e0be48] text-[#0A0F1D] text-xs font-bold uppercase tracking-widest px-8 py-3.5 transition-all shadow-lg"
+      >
+        Fazer Orçamento no Contato
+      </a>
+    </div>
+
+  </div>
+</section>
 
 /* ---------- Projects ---------- */
+
 const projects = [
   {
     title: "🗓️ Sistema Inteligente de Grade Horária",
